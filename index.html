@@ -358,6 +358,156 @@
       font-size: 0.9rem;
     }
 
+    .cert-subnote {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-top: -20px;
+      margin-bottom: 24px;
+    }
+
+    .cert-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .cert-row {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      text-align: left;
+      color: var(--text-white);
+      font-family: inherit;
+      transition: border-color 0.2s, transform 0.2s, background 0.2s;
+    }
+
+    .cert-row:hover {
+      border-color: var(--accent);
+      background: #141e28;
+      transform: translateY(-2px);
+    }
+
+    .cert-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cert-icon {
+      color: var(--accent);
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+
+    .cert-title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .cert-meta {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .cert-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 9, 13, 0.78);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .cert-modal-backdrop.open {
+      display: flex;
+    }
+
+    .cert-modal {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      max-width: 880px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+    }
+
+    .cert-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .cert-modal-header h3 {
+      font-size: 1.2rem;
+      color: #ffffff;
+    }
+
+    .cert-close {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .cert-close:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .cert-modal-meta {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .cert-viewer-box {
+      width: 100%;
+      height: 62vh;
+      min-height: 360px;
+      background: #0b1116;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 14px 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cert-viewer-box iframe,
+    .cert-viewer-box img {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .cert-viewer-box img {
+      object-fit: contain;
+      padding: 12px;
+    }
+
     footer {
       text-align: center;
       padding: 36px 0;
@@ -386,6 +536,10 @@
       .about-grid {
         grid-template-columns: 1fr;
       }
+      .cert-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
@@ -413,7 +567,7 @@
       <div>
         <div class="eyebrow">✦ PORTFOLIO</div>
         <h1>Foram Shah</h1>
-        <div class="hero-subtitle">I am a <span>Data Analyst & Insight Communicator</span></div>
+        <div class="hero-subtitle">I am a <span>Data Analyst &amp; Insight Communicator</span></div>
         <p>
           Turning raw data into clear analysis, interactive dashboards, and structured workflows using Power BI, Tableau, and Python so stakeholders can make confident decisions.
         </p>
@@ -445,14 +599,14 @@
         <p>Data cleaning &amp; workflows</p>
       </div>
       <div class="stat-item">
-        <h3>2</h3>
-        <p>Industry certifications</p>
+        <h3>11</h3>
+        <p>Certificate files</p>
       </div>
     </div>
 
     <section id="projects">
       <div class="section-label">FEATURED WORK</div>
-      <h2>Projects & Analytical Workflows</h2>
+      <h2>Projects &amp; Analytical Workflows</h2>
       <div class="grid-2">
         <div class="card">
           <div>
@@ -556,29 +710,205 @@
     <section id="certifications" style="border-bottom: none;">
       <div class="section-label">CREDENTIALS</div>
       <h2>Certifications</h2>
-      <div class="grid-2">
-        <div class="card">
-          <div>
-            <h3>IBM - Data Analyst Specialization</h3>
-            <p>Issued May 2021 · Data analysis methodology, data cleaning, querying, visualization, and analytical workflows.</p>
-          </div>
-          <span class="pill" style="width: fit-content;">Issued May 2021</span>
-        </div>
+      <p class="cert-subnote">Click a certification to preview the PDF, download a copy, or verify online.</p>
 
-        <div class="card">
-          <div>
-            <h3>AZ-900 - Microsoft Azure Fundamentals</h3>
-            <p>Issued March 2021 · Foundational knowledge of cloud concepts, Azure services, security, and governance.</p>
-          </div>
-          <span class="pill" style="width: fit-content;">Issued March 2021</span>
-        </div>
+      <div class="cert-stack">
+        <button type="button" class="cert-row" onclick="openCertModal(
+          'IBM Data Analyst Professional Certificate',
+          'IBM / Coursera · Issued May 2021 · Credential ID: QP5YJF3AWV6J',
+          'ibm data analyst.pdf',
+          'https://www.credly.com/users/foram-shah.6bea922e'
+        )">
+          <span class="cert-left">
+            <span class="cert-icon">🏅</span>
+            <span class="cert-title">IBM Data Analyst</span>
+          </span>
+          <span class="cert-meta">May 2021 · View PDF →</span>
+        </button>
+
+        <button type="button" class="cert-row" onclick="openCertModal(
+          'IBM Data Analyst Capstone Project',
+          'IBM / Coursera · Issued May 15, 2021',
+          'ibm-data-analyst-capstone-project.pdf',
+          'https://www.credly.com/badges/66cb836f-2e10-44c7-9dc2-55e9ffa4hebh'
+        )">
+          <span class="cert-left">
+            <span class="cert-icon">🏅</span>
+            <span class="cert-title">IBM Data Analyst Capstone Project</span>
+          </span>
+          <span class="cert-meta">May 15, 2021 · View PDF →</span>
+        </button>
+
+        <button type="button" class="cert-row" onclick="openCertModal(
+          'Microsoft Certified: Azure Fundamentals (AZ-900)',
+          'Microsoft · Issued Mar 26, 2021',
+          'microsoft-az-900-azure-fundamentals.pdf',
+          'https://www.credly.com/users/foram-shah.6bea922e'
+        )">
+          <span class="cert-left">
+            <span class="cert-icon">🏅</span>
+            <span class="cert-title">Microsoft AZ-900 - Azure Fundamentals</span>
+          </span>
+          <span class="cert-meta">Mar 26, 2021 · View PDF →</span>
+        </button>
+
+        <button type="button" class="cert-row" onclick="openCertModal(
+          'Data Analytics Foundations',
+          'Coursera',
+          'data-analytics-foundations.pdf',
+          'https://www.credly.com/users/foram-shah.6bea922e'
+        )">
+          <span class="cert-left">
+            <span class="cert-icon">🏅</span>
+            <span class="cert-title">Data Analytics Foundations</span>
+          </span>
+          <span class="cert-meta">View PDF →</span>
+        </button>
+
+        <button type="button" class="cert-row" onclick="openCertModal(
+          'Data Analysis with Python',
+          'Coursera · Issued May 6, 2021',
+          'data-analysis-with-python.pdf',
+          'https://www.credly.com/users/foram-shah.6bea922e'
+        )">
+          <span class="cert-left">
+            <span class="cert-icon">🏅</span>
+            <span class="cert-title">Data Analysis with Python</span>
+          </span>
+          <span class="cert-meta">May 2021 · View PDF →</span>
+        </button>
+
+        <button type="button" class="cert-row" onclick="openCertModal(
+          'Data Visualization with Python',
+          'Coursera · Issued May 13, 2021',
+          'data-visualization-with-python.pdf',
+          'https://www.credly.com/users/foram-shah.6bea922e'
+        )">
+          <span class="cert-left">
+            <span class="cert-icon">🏅</span>
+            <span class="cert-title">Data Visualization with Python</span>
+          </span>
+          <span class="cert-meta">May 2021 · View PDF →</span>
+        </button>
+
+        <button type="button" class="cert-row" onclick="openCertModal(
+          'Databases and SQL for Data Science with Python',
+          'Coursera',
+          'databases-and-sql-for-data-science-with-python.pdf',
+          'https://www.credly.com/users/foram-shah.6bea922e'
+        )">
+          <span class="cert-left">
+            <span class="cert-icon">🏅</span>
+            <span class="cert-title">Databases and SQL for Data Science with Python</span>
+          </span>
+          <span class="cert-meta">View PDF →</span>
+        </button>
+
+        <button type="button" class="cert-row" onclick="openCertModal(
+          'Data Visualization and Dashboards with Excel and Cognos',
+          'Coursera',
+          'data visualization and dashboards with excel and cognos.pdf',
+          'https://www.credly.com/users/foram-shah.6bea922e'
+        )">
+          <span class="cert-left">
+            <span class="cert-icon">🏅</span>
+            <span class="cert-title">Data Visualization and Dashboards with Excel and Cognos</span>
+          </span>
+          <span class="cert-meta">View PDF →</span>
+        </button>
+
+        <button type="button" class="cert-row" onclick="openCertModal(
+          'Excel For Data Analysis',
+          'Coursera · Issued Feb 25, 2021',
+          'excel-for-data-analysis.pdf',
+          'https://www.credly.com/users/foram-shah.6bea922e'
+        )">
+          <span class="cert-left">
+            <span class="cert-icon">🏅</span>
+            <span class="cert-title">Excel For Data Analysis</span>
+          </span>
+          <span class="cert-meta">Feb 2021 · View PDF →</span>
+        </button>
+
+        <button type="button" class="cert-row" onclick="openCertModal(
+          'Python for Data Science & AI',
+          'Coursera · Issued Apr 13, 2021',
+          'python-for-data-science-and-ai.pdf',
+          'https://www.credly.com/users/foram-shah.6bea922e'
+        )">
+          <span class="cert-left">
+            <span class="cert-icon">🏅</span>
+            <span class="cert-title">Python for Data Science &amp; AI</span>
+          </span>
+          <span class="cert-meta">Apr 2021 · View PDF →</span>
+        </button>
+
+        <button type="button" class="cert-row" onclick="openCertModal(
+          'Python Project for Data Science',
+          'Coursera · Issued Apr 28, 2021',
+          'python project for data science.pdf',
+          'https://www.credly.com/users/foram-shah.6bea922e'
+        )">
+          <span class="cert-left">
+            <span class="cert-icon">🏅</span>
+            <span class="cert-title">Python Project for Data Science</span>
+          </span>
+          <span class="cert-meta">Apr 2021 · View PDF →</span>
+        </button>
       </div>
     </section>
   </main>
 
+  <div id="certModal" class="cert-modal-backdrop" onclick="if(event.target === this) closeCertModal()">
+    <div class="cert-modal">
+      <div class="cert-modal-header">
+        <div>
+          <h3 id="certModalTitle">Certification</h3>
+          <div id="certModalMeta" class="cert-modal-meta" style="margin-bottom: 0;"></div>
+        </div>
+        <button type="button" class="cert-close" onclick="closeCertModal()" aria-label="Close">✕</button>
+      </div>
+
+      <div id="certViewerBox" class="cert-viewer-box"></div>
+
+      <div class="btn-row">
+        <a id="certDownloadBtn" href="#" download class="btn btn-mint">Download File ↓</a>
+        <a id="certVerifyBtn" href="#" target="_blank" class="btn btn-dark">Verify Credential →</a>
+        <button type="button" class="btn btn-dark" onclick="closeCertModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="container">© 2026 Foram Shah • Built with GitHub Pages</div>
   </footer>
+
+  <script>
+    function openCertModal(title, meta, fileUrl, verifyUrl) {
+      document.getElementById('certModalTitle').textContent = title;
+      document.getElementById('certModalMeta').textContent = meta;
+
+      const viewerBox = document.getElementById('certViewerBox');
+      const downloadBtn = document.getElementById('certDownloadBtn');
+      const verifyBtn = document.getElementById('certVerifyBtn');
+
+      downloadBtn.href = fileUrl;
+      verifyBtn.href = verifyUrl;
+
+      if (fileUrl.toLowerCase().endsWith('.pdf')) {
+        viewerBox.innerHTML = `<iframe src="${fileUrl}" title="${title}"></iframe>`;
+      } else {
+        viewerBox.innerHTML = `<img src="${fileUrl}" alt="${title}" />`;
+      }
+
+      document.getElementById('certModal').classList.add('open');
+    }
+
+    function closeCertModal() {
+      document.getElementById('certModal').classList.remove('open');
+      document.getElementById('certViewerBox').innerHTML = '';
+    }
+  </script>
 
 </body>
 </html>
