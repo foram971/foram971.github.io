@@ -132,10 +132,24 @@
       font-weight: 600;
       margin-bottom: 18px;
       color: var(--text-white);
+      min-height: 2.1rem;
     }
 
-    .hero-subtitle span {
+    .typewriter-text {
       color: var(--accent);
+    }
+
+    .typewriter-cursor {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 400;
+      margin-left: 2px;
+      animation: blinkCursor 0.85s infinite;
+    }
+
+    @keyframes blinkCursor {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
     }
 
     .hero p {
@@ -247,7 +261,14 @@
     h2 {
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 2.1rem;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
+    }
+
+    .section-subnote {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-top: -12px;
+      margin-bottom: 28px;
     }
 
     .grid-2 {
@@ -256,39 +277,11 @@
       gap: 22px;
     }
 
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 26px;
-      transition: border-color 0.2s, transform 0.2s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    .card h3 {
-      font-size: 1.15rem;
-      margin-bottom: 10px;
-      color: #ffffff;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      margin-bottom: 18px;
-    }
-
     .pill-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .pill {
@@ -303,12 +296,176 @@
     .card-link {
       color: var(--accent);
       text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
     }
 
     .card-link:hover {
       text-decoration: underline;
+    }
+
+    /* Filter buttons & showcase project cards */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #06211b;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .case-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .case-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .case-banner {
+      background: linear-gradient(135deg, #0d2328 0%, #101923 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 20px;
+      min-height: 112px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .case-tag {
+      align-self: flex-start;
+      background: rgba(62, 214, 181, 0.14);
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .case-banner-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 8px;
+    }
+
+    .case-wave {
+      height: 2px;
+      width: 56px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin-top: 8px;
+    }
+
+    .case-body {
+      padding: 20px;
+      flex: 1;
+    }
+
+    .case-body h3 {
+      font-size: 1.08rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .case-summary {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 14px;
+    }
+
+    .case-bullets,
+    .cap-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .case-bullets li::before,
+    .cap-list li::before {
+      content: "• ";
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .case-footer {
+      padding: 14px 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+    }
+
+    .gh-mini {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .gh-mini:hover {
+      color: var(--accent);
+    }
+
+    /* Capabilities grid */
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .cap-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .cap-title {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
 
     .about-grid {
@@ -361,7 +518,7 @@
     .cert-subnote {
       color: var(--text-muted);
       font-size: 0.92rem;
-      margin-top: -20px;
+      margin-top: -12px;
       margin-bottom: 24px;
     }
 
@@ -508,11 +665,106 @@
       padding: 12px;
     }
 
-    footer {
-      text-align: center;
-      padding: 36px 0;
+    /* Bottom CTA & structured footer */
+    .cta-section {
+      padding: 56px 0 28px;
+      border-bottom: none;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #102327 0%, #111921 65%, #122526 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .cta-box h2 {
+      margin-bottom: 8px;
+      font-size: 1.9rem;
+    }
+
+    .cta-box p {
       color: var(--text-muted);
-      font-size: 0.88rem;
+      font-size: 0.95rem;
+      max-width: 520px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    footer {
+      padding: 36px 0 32px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-brand strong {
+      display: block;
+      color: var(--text-white);
+      font-size: 0.86rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a,
+    .footer-socials a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.6px;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover,
+    .footer-socials a:hover {
+      color: var(--accent);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-top: 18px;
+      font-size: 0.78rem;
+      color: #64748b;
+    }
+
+    @media (max-width: 960px) {
+      .cap-grid,
+      .showcase-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 850px) {
@@ -533,18 +785,27 @@
       .stats-bar {
         grid-template-columns: repeat(2, 1fr);
       }
-      .about-grid {
+      .about-grid,
+      .grid-2 {
         grid-template-columns: 1fr;
       }
       .cert-row {
         flex-direction: column;
         align-items: flex-start;
       }
-      .grid-2 {
-        grid-template-columns: 1fr;
+      .cta-box,
+      .footer-top,
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
-  </style>
+
+    @media (max-width: 640px) {
+      .cap-grid,
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -560,6 +821,7 @@
         <div class="nav-links">
           <a href="#home">Home</a>
           <a href="#projects">Projects</a>
+          <a href="#capabilities">Capabilities</a>
           <a href="#about">About</a>
           <a href="#certifications">Certifications</a>
         </div>
@@ -572,9 +834,11 @@
       <div>
         <div class="eyebrow">✦ PORTFOLIO</div>
         <h1>Foram Shah</h1>
-        <div class="hero-subtitle">I am a <span>Data Analyst &amp; Insight Communicator</span></div>
+        <div class="hero-subtitle">
+          I am <span id="typewriterText" class="typewriter-text">Data Analyst &amp; Insight Communicator</span><span class="typewriter-cursor">|</span>
+        </div>
         <p>
-          Turning raw data into clear analysis, interactive dashboards, and structured workflows using Power BI, Tableau, and Python so stakeholders can make confident decisions.
+          Turning raw data into clear analysis, interactive dashboards, and structured workflows using SQL Server, Power BI, Tableau, and Python so stakeholders can make confident decisions.
         </p>
         <div class="btn-row">
           <a href="#projects" class="btn btn-mint">View projects →</a>
@@ -596,8 +860,8 @@
         <p>Featured analytics projects</p>
       </div>
       <div class="stat-item">
-        <h3>Power BI · Tableau</h3>
-        <p>BI &amp; visual storytelling</p>
+        <h3>SQL · BI</h3>
+        <p>T-SQL, Power BI &amp; Tableau</p>
       </div>
       <div class="stat-item">
         <h3>Python</h3>
@@ -610,80 +874,194 @@
     </div>
 
     <section id="projects">
-      <div class="section-label">FEATURED WORK</div>
+      <div class="section-label">PORTFOLIO</div>
       <h2>Projects &amp; Analytical Workflows</h2>
-      <div class="grid-2">
-        <div class="card">
-          <div>
-            <h3>Business Analytics Solution (Power BI)</h3>
-            <p>End-to-end analytics built with a Bronze, Silver, and Gold Medallion Architecture. Includes DAX measures for Revenue, Cost, Profit, Profit Margin, YTD, QTD, LY comparisons, forecasting visuals, and P&amp;L filtering.</p>
-            <div class="pill-row">
-              <span class="pill">Power BI</span>
-              <span class="pill">DAX</span>
-              <span class="pill">Power Query</span>
-              <span class="pill">Medallion Architecture</span>
-            </div>
-          </div>
-          <a href="https://github.com/foram971/Power-BI" target="_blank" class="card-link">View Power BI Project →</a>
-        </div>
+      <p class="section-subnote">Curated analytics projects across SQL Server, Power BI, Tableau, and Python.</p>
 
-        <div class="card">
-          <div>
-            <h3>Retail Analytics – WarmHands (Power BI)</h3>
-            <p>Multi-table star schema retail model analyzing Orders, Customers, Stock, Price, Cost, and Country data—covering sales trends, profitability, inventory impact, and ABC product categorization (A, B, C).</p>
-            <div class="pill-row">
-              <span class="pill">Power BI</span>
-              <span class="pill">Star Schema</span>
-              <span class="pill">ABC Analysis</span>
-              <span class="pill">DAX</span>
-            </div>
-          </div>
-          <a href="https://github.com/foram971/Power-BI" target="_blank" class="card-link">Explore Retail Case Study →</a>
-        </div>
-
-        <div class="card">
-          <div>
-            <h3>Job Market Analytics Dashboard (Tableau)</h3>
-            <p>Interactive Tableau dashboard analyzing industry hiring concentration, experience vs. job level distributions, salary benchmarks across roles, skill demand, applicant supply vs. postings, and hiring trends over time.</p>
-            <div class="pill-row">
-              <span class="pill">Tableau</span>
-              <span class="pill">Excel</span>
-              <span class="pill">Salary Benchmarking</span>
-              <span class="pill">Workforce Analytics</span>
-            </div>
-          </div>
-          <a href="https://github.com/foram971?tab=repositories" target="_blank" class="card-link">View Tableau Project →</a>
-        </div>
-
-        <div class="card">
-          <div>
-            <h3>Python for Data Analytics</h3>
-            <p>Structured, chapter-by-chapter Python repository covering core fundamentals, data structures, functions, file handling, and data cleaning workflows preparing datasets for Power BI and Tableau.</p>
-            <div class="pill-row">
-              <span class="pill">Python</span>
-              <span class="pill">Jupyter Notebook</span>
-              <span class="pill">Pandas</span>
-              <span class="pill">NumPy</span>
-            </div>
-          </div>
-          <a href="https://github.com/foram971/Python" target="_blank" class="card-link">Explore Python Repository →</a>
-        </div>
+      <div class="filter-row" id="projectFilters">
+        <button type="button" class="filter-btn active" data-filter="all">ALL</button>
+        <button type="button" class="filter-btn" data-filter="sql">SQL</button>
+        <button type="button" class="filter-btn" data-filter="powerbi">POWER BI</button>
+        <button type="button" class="filter-btn" data-filter="tableau">TABLEAU</button>
+        <button type="button" class="filter-btn" data-filter="python">PYTHON</button>
       </div>
 
-      <div class="card" style="grid-column: 1 / -1;">
-          <div>
+      <div class="showcase-grid" id="projectGrid">
+        <article class="case-card" data-category="sql">
+          <div class="case-banner">
+            <span class="case-tag">SQL SERVER</span>
+            <div class="case-banner-title">Hospital Resource Management</div>
+            <div class="case-wave"></div>
+          </div>
+          <div class="case-body">
             <h3>Hospital Resource Management (SQL Server)</h3>
-            <p>End-to-end T-SQL analysis across 2,506 patient records, 10 departments, and 2,847 beds evaluating length of stay, readmission rates, bed occupancy, underutilized beds, and ER wait times with ranking window functions.</p>
+            <p class="case-summary">Hospitals need clear visibility into patient flow, bed utilization, and ER wait times across departments.</p>
             <div class="pill-row">
               <span class="pill">SQL Server</span>
               <span class="pill">T-SQL</span>
               <span class="pill">Window Functions</span>
               <span class="pill">Excel</span>
             </div>
+            <ul class="case-bullets">
+              <li>Analyzed 2,506 patient records, 10 departments, and 2,847 beds</li>
+              <li>Tracked avg length of stay, readmission rates, and bed occupancy</li>
+              <li>Ranked ER wait times with RANK() &amp; DENSE_RANK()</li>
+            </ul>
           </div>
-          <a href="https://github.com/foram971/Hospital-Resource-Management-SQL" target="_blank" class="card-link">View SQL Project →</a>
+          <div class="case-footer">
+            <a href="https://github.com/foram971/Hospital-Resource-Management-SQL" target="_blank" class="card-link">VIEW PROJECT ↗</a>
+            <a href="https://github.com/foram971/Hospital-Resource-Management-SQL" target="_blank" class="gh-mini">GitHub</a>
+          </div>
+        </article>
+
+        <article class="case-card" data-category="powerbi">
+          <div class="case-banner">
+            <span class="case-tag">POWER BI</span>
+            <div class="case-banner-title">Business Analytics Solution</div>
+            <div class="case-wave"></div>
+          </div>
+          <div class="case-body">
+            <h3>Business Analytics Solution (Power BI)</h3>
+            <p class="case-summary">Leadership teams need unified revenue, margin, and period-over-period tracking without manual spreadsheets.</p>
+            <div class="pill-row">
+              <span class="pill">Power BI</span>
+              <span class="pill">DAX</span>
+              <span class="pill">Power Query</span>
+              <span class="pill">Medallion</span>
+            </div>
+            <ul class="case-bullets">
+              <li>Built Bronze, Silver, and Gold medallion data layers</li>
+              <li>Created DAX measures for Revenue, Cost, Profit, YTD, QTD &amp; LY</li>
+              <li>Added forecasting visuals and P&amp;L filtering</li>
+            </ul>
+          </div>
+          <div class="case-footer">
+            <a href="https://github.com/foram971/Power-BI" target="_blank" class="card-link">VIEW PROJECT ↗</a>
+            <a href="https://github.com/foram971/Power-BI" target="_blank" class="gh-mini">GitHub</a>
+          </div>
+        </article>
+
+        <article class="case-card" data-category="powerbi">
+          <div class="case-banner">
+            <span class="case-tag">POWER BI</span>
+            <div class="case-banner-title">Retail Analytics – WarmHands</div>
+            <div class="case-wave"></div>
+          </div>
+          <div class="case-body">
+            <h3>Retail Analytics – WarmHands (Power BI)</h3>
+            <p class="case-summary">Retail teams need clear product and inventory signals to balance stock availability with profitability.</p>
+            <div class="pill-row">
+              <span class="pill">Power BI</span>
+              <span class="pill">Star Schema</span>
+              <span class="pill">ABC Analysis</span>
+              <span class="pill">DAX</span>
+            </div>
+            <ul class="case-bullets">
+              <li>Modeled Orders, Customers, Stock, Price, Cost &amp; Country tables</li>
+              <li>Segmented products using A, B, C inventory categorization</li>
+              <li>Tracked sales trends, margins, and stock impact</li>
+            </ul>
+          </div>
+          <div class="case-footer">
+            <a href="https://github.com/foram971/Power-BI" target="_blank" class="card-link">VIEW PROJECT ↗</a>
+            <a href="https://github.com/foram971/Power-BI" target="_blank" class="gh-mini">GitHub</a>
+          </div>
+        </article>
+
+        <article class="case-card" data-category="tableau">
+          <div class="case-banner">
+            <span class="case-tag">TABLEAU</span>
+            <div class="case-banner-title">Job Market Analytics</div>
+            <div class="case-wave"></div>
+          </div>
+          <div class="case-body">
+            <h3>Job Market Analytics Dashboard (Tableau)</h3>
+            <p class="case-summary">Job seekers and talent teams need clear views of hiring demand, role levels, and pay benchmarks.</p>
+            <div class="pill-row">
+              <span class="pill">Tableau</span>
+              <span class="pill">Excel</span>
+              <span class="pill">Salary Benchmarks</span>
+            </div>
+            <ul class="case-bullets">
+              <li>Mapped industry hiring concentration and role seniority</li>
+              <li>Compared compensation benchmarks and skill demand</li>
+              <li>Tracked applicant supply vs. job postings over time</li>
+            </ul>
+          </div>
+          <div class="case-footer">
+            <a href="https://github.com/foram971?tab=repositories" target="_blank" class="card-link">VIEW PROJECT ↗</a>
+            <a href="https://github.com/foram971?tab=repositories" target="_blank" class="gh-mini">GitHub</a>
+          </div>
+        </article>
+
+        <article class="case-card" data-category="python">
+          <div class="case-banner">
+            <span class="case-tag">PYTHON</span>
+            <div class="case-banner-title">Python for Data Analytics</div>
+            <div class="case-wave"></div>
+          </div>
+          <div class="case-body">
+            <h3>Python for Data Analytics</h3>
+            <p class="case-summary">Clean, repeatable Python preparation makes messy datasets reliable for downstream BI dashboards.</p>
+            <div class="pill-row">
+              <span class="pill">Python</span>
+              <span class="pill">Pandas</span>
+              <span class="pill">NumPy</span>
+              <span class="pill">Jupyter</span>
+            </div>
+            <ul class="case-bullets">
+              <li>Organized chapter-by-chapter notebooks from basics to cleaning</li>
+              <li>Covers data structures, functions, file handling &amp; wrangling</li>
+              <li>Prepares clean tables for Power BI and Tableau</li>
+            </ul>
+          </div>
+          <div class="case-footer">
+            <a href="https://github.com/foram971/Python" target="_blank" class="card-link">VIEW PROJECT ↗</a>
+            <a href="https://github.com/foram971/Python" target="_blank" class="gh-mini">GitHub</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="capabilities">
+      <div class="section-label">CAPABILITIES</div>
+      <h2>What I build</h2>
+      <p class="section-subnote">From raw operational data to interactive dashboards, SQL insights, and clean analytical workflows.</p>
+
+      <div class="cap-grid">
+        <div class="cap-card">
+          <div class="cap-title">BI &amp; EXECUTIVE DASHBOARDS</div>
+          <ul class="cap-list">
+            <li>Power BI &amp; Tableau interactive reporting</li>
+            <li>DAX time-intelligence (YTD, QTD, LY) &amp; KPIs</li>
+            <li>Star schema &amp; Medallion data modeling</li>
+            <li>ABC inventory &amp; workforce benchmarking</li>
+            <li>Stakeholder-ready visual storytelling</li>
+          </ul>
         </div>
-      
+
+        <div class="cap-card">
+          <div class="cap-title">SQL &amp; RELATIONAL ANALYTICS</div>
+          <ul class="cap-list">
+            <li>SQL Server (T-SQL) querying &amp; multi-table joins</li>
+            <li>Window functions (RANK, DENSE_RANK)</li>
+            <li>Length-of-stay, readmission &amp; occupancy metrics</li>
+            <li>Bottleneck, wait-time &amp; utilization analysis</li>
+            <li>SSMS flat-file &amp; CSV data loading workflows</li>
+          </ul>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-title">PYTHON &amp; DATA PREPARATION</div>
+          <ul class="cap-list">
+            <li>Data cleaning &amp; transformation pipelines</li>
+            <li>Working with Pandas, NumPy &amp; Jupyter</li>
+            <li>Excel &amp; Power Query data shaping</li>
+            <li>Structured, reusable analytical scripts</li>
+            <li>Dataset prep for BI &amp; reporting tools</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section id="about">
@@ -692,12 +1070,13 @@
       <div class="about-grid">
         <div class="about-text">
           <p>
-            I am a Data Analyst with a strong foundation in software and database management, working across Power BI, Tableau, and Python to turn raw information into clear, actionable insights.
+            I am a Data Analyst with a strong foundation in software and database management, working across Power BI, Tableau, SQL Server, and Python to turn raw information into clear, actionable insights.
           </p>
           <p>
             Through my academic training in India and Canada and hands-on analytics projects on GitHub, I focus on clean data preparation, structured problem-solving, and clear visual reporting.
           </p>
           <div class="pill-row">
+            <span class="pill">SQL Server</span>
             <span class="pill">Power BI</span>
             <span class="pill">Tableau</span>
             <span class="pill">Python</span>
@@ -877,6 +1256,19 @@
         </button>
       </div>
     </section>
+
+    <section class="cta-section">
+      <div class="cta-box">
+        <div>
+          <h2>Let's turn raw data into clear decisions</h2>
+          <p>Open to Data Analyst and BI / analytics roles—combining SQL Server, Power BI, Tableau, and Python to build clear reports and reliable workflows.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="mailto:your.email@example.com" class="btn btn-mint">Get in touch</a>
+          <a href="https://github.com/foram971" target="_blank" class="btn btn-dark">GitHub</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <div id="certModal" class="cert-modal-backdrop" onclick="if(event.target === this) closeCertModal()">
@@ -900,7 +1292,33 @@
   </div>
 
   <footer>
-    <div class="container">© 2026 Foram Shah • Built with GitHub Pages</div>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <strong>Foram Shah</strong>
+          <span>Data Analyst · SQL · Power BI · Tableau · Python</span>
+        </div>
+
+        <div class="footer-nav">
+          <a href="#home">HOME</a>
+          <a href="#projects">PROJECTS</a>
+          <a href="#capabilities">CAPABILITIES</a>
+          <a href="#about">ABOUT</a>
+          <a href="#certifications">CERTIFICATIONS</a>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://github.com/foram971" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/foramshahnimeshbhai" target="_blank">LinkedIn</a>
+          <a href="mailto:your.email@example.com">Email</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Foram Shah</span>
+        <span>Built with HTML, CSS &amp; GitHub Pages</span>
+      </div>
+    </div>
   </footer>
 
   <script>
@@ -908,17 +1326,18 @@
       document.getElementById('certModalTitle').textContent = title;
       document.getElementById('certModalMeta').textContent = meta;
 
+      const safeUrl = encodeURI(fileUrl);
       const viewerBox = document.getElementById('certViewerBox');
       const downloadBtn = document.getElementById('certDownloadBtn');
       const verifyBtn = document.getElementById('certVerifyBtn');
 
-      downloadBtn.href = fileUrl;
+      downloadBtn.href = safeUrl;
       verifyBtn.href = verifyUrl;
 
       if (fileUrl.toLowerCase().endsWith('.pdf')) {
-        viewerBox.innerHTML = `<iframe src="${fileUrl}" title="${title}"></iframe>`;
+        viewerBox.innerHTML = `<iframe src="${safeUrl}" title="${title}"></iframe>`;
       } else {
-        viewerBox.innerHTML = `<img src="${fileUrl}" alt="${title}" />`;
+        viewerBox.innerHTML = `<img src="${safeUrl}" alt="${title}" />`;
       }
 
       document.getElementById('certModal').classList.add('open');
@@ -928,6 +1347,66 @@
       document.getElementById('certModal').classList.remove('open');
       document.getElementById('certViewerBox').innerHTML = '';
     }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeCertModal();
+    });
+
+    document.querySelectorAll('.filter-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('#projectGrid .case-card').forEach((card) => {
+          card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'flex' : 'none';
+        });
+      });
+    });
+
+    // Typewriter animation for the 5 phrases after "I am "
+    (function initTypewriter() {
+      const target = document.getElementById('typewriterText');
+      if (!target) return;
+
+      const phrases = [
+        'a Data Analyst & Insight Communicator',
+        'an Analytics Storyteller',
+        'a Dashboard Builder',
+        'a SQL & BI Problem Solver',
+        'a Data Workflow Crafter'
+      ];
+
+      let phraseIndex = 0;
+      let charIndex = phrases[0].length;
+      let isDeleting = false;
+
+      function tick() {
+        const currentPhrase = phrases[phraseIndex];
+
+        if (isDeleting) {
+          charIndex--;
+          target.textContent = currentPhrase.slice(0, charIndex);
+        } else {
+          charIndex++;
+          target.textContent = currentPhrase.slice(0, charIndex);
+        }
+
+        let delay = isDeleting ? 45 : 75;
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+          delay = 1800;
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          delay = 350;
+        }
+
+        setTimeout(tick, delay);
+      }
+
+      setTimeout(tick, 1800);
+    })();
   </script>
 
 </body>
