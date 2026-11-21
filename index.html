@@ -9,14 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-main: #0b1116;
-      --bg-card: #111921;
-      --accent: #3ed6b5;
-      --accent-dark: #259b82;
-      --accent-glow: rgba(62, 214, 181, 0.22);
-      --text-white: #f1f5f9;
-      --text-muted: #94a3b8;
-      --border: #1e293b;
+      --bg-main: #faf8f5;
+      --bg-card: #ffffff;
+      --bg-subtle: #f1ede6;
+      --accent: #1d4ed8;
+      --accent-hover: #1e40af;
+      --accent-soft: rgba(29, 78, 216, 0.1);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2ddd5;
     }
 
     * {
@@ -31,9 +32,8 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at 80% 35%, #112a2e 0%, var(--bg-main) 50%);
       background-color: var(--bg-main);
-      color: var(--text-white);
+      color: var(--text-main);
       line-height: 1.6;
     }
 
@@ -44,12 +44,12 @@
     }
 
     header {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       position: sticky;
       top: 0;
-      background: rgba(11, 17, 22, 0.92);
+      z-index: 40;
+      background: rgba(250, 248, 245, 0.94);
       backdrop-filter: blur(10px);
-      z-index: 50;
+      border-bottom: 1px solid var(--border);
     }
 
     nav {
@@ -57,6 +57,7 @@
       justify-content: space-between;
       align-items: center;
       height: 72px;
+      gap: 16px;
     }
 
     .brand {
@@ -64,75 +65,65 @@
       align-items: center;
       gap: 12px;
       text-decoration: none;
-      color: var(--text-white);
-      font-weight: 600;
-      font-size: 1rem;
+      color: var(--text-main);
+      font-weight: 700;
     }
 
     .brand-badge {
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      color: #06211b;
-      font-weight: 800;
-      font-size: 0.85rem;
+      background: var(--text-main);
+      color: #ffffff;
+      font-size: 0.82rem;
+      font-weight: 700;
       padding: 6px 9px;
       border-radius: 8px;
-      letter-spacing: 0.5px;
     }
 
     .nav-links {
       display: flex;
-      gap: 28px;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
       text-decoration: none;
       color: var(--text-muted);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 500;
-      padding-bottom: 4px;
-      transition: color 0.2s;
     }
 
     .nav-links a:hover {
-      color: var(--text-white);
-      border-bottom: 2px solid var(--accent);
+      color: var(--accent);
     }
 
     .hero {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.25fr 0.75fr;
       align-items: center;
-      gap: 48px;
-      padding: 72px 0 64px;
+      gap: 44px;
+      padding: 68px 0 56px;
     }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
       color: var(--accent);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
-      letter-spacing: 1.8px;
+      letter-spacing: 1.6px;
       text-transform: uppercase;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .hero h1 {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 4rem;
-      font-weight: 700;
+      font-size: 3.6rem;
       line-height: 1.1;
-      margin-bottom: 16px;
-      color: #ffffff;
+      margin-bottom: 14px;
     }
 
     .hero-subtitle {
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 600;
-      margin-bottom: 18px;
-      color: var(--text-white);
-      min-height: 2.1rem;
+      margin-bottom: 16px;
+      min-height: 2rem;
     }
 
     .typewriter-text {
@@ -142,676 +133,322 @@
     .typewriter-cursor {
       display: inline-block;
       color: var(--accent);
-      font-weight: 500;
       margin-left: 2px;
-      animation: blinkCursor 0.8s step-end infinite;
-}
+      animation: blink 0.8s step-end infinite;
     }
 
-    @keyframes blinkCursor {
+    @keyframes blink {
       0%, 49% { opacity: 1; }
       50%, 100% { opacity: 0; }
     }
 
     .hero p {
       color: var(--text-muted);
-      font-size: 1.02rem;
       max-width: 540px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .btn-row {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
       align-items: center;
     }
 
     .btn {
-      padding: 12px 24px;
+      padding: 11px 22px;
       border-radius: 999px;
+      font-size: 0.9rem;
       font-weight: 600;
-      font-size: 0.92rem;
       text-decoration: none;
-      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      transition: all 0.2s ease;
     }
 
-    .btn-mint {
+    .btn-primary {
       background: var(--accent);
-      color: #06211b;
+      color: #ffffff;
     }
 
-    .btn-mint:hover {
-      background: #5ce6c7;
-      transform: translateY(-1px);
+    .btn-primary:hover {
+      background: var(--accent-hover);
     }
 
-    .btn-dark {
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text-white);
-      border: 1px solid var(--border);
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border-color: var(--border);
     }
 
-    .btn-dark:hover {
+    .btn-secondary:hover {
       border-color: var(--accent);
       color: var(--accent);
     }
 
-    .hero-photo-wrap {
-      display: flex;
-      justify-content: center;
+    .photo-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
     }
 
-    .photo-ring {
-      width: 310px;
-      height: 310px;
-      border-radius: 50%;
-      padding: 5px;
-      background: linear-gradient(145deg, var(--accent), #133b3a);
-      box-shadow: 0 0 60px var(--accent-glow);
-    }
-
-    .photo-ring img {
+    .photo-card img {
       width: 100%;
-      height: 100%;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
-      border-radius: 50%;
-      background: #16222c;
+      border-radius: 14px;
       display: block;
     }
 
     .stats-bar {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      padding: 36px 0;
+      gap: 20px;
+      padding: 28px 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
 
-    .stat-item h3 {
+    .stat-box h3 {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2rem;
+      font-size: 1.75rem;
       color: var(--accent);
-      line-height: 1.2;
-      margin-bottom: 6px;
     }
 
-    .stat-item p {
+    .stat-box p {
       color: var(--text-muted);
       font-size: 0.88rem;
     }
 
     section {
-      padding: 72px 0;
+      padding: 68px 0;
       border-bottom: 1px solid var(--border);
-    }
-
-    .section-label {
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
     }
 
     h2 {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2.1rem;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .subnote {
+      color: var(--text-muted);
       margin-bottom: 24px;
     }
 
-    .section-subnote {
-      color: var(--text-muted);
-      font-size: 0.96rem;
-      margin-top: -12px;
-      margin-bottom: 28px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .pill {
-      background: rgba(62, 214, 181, 0.1);
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 500;
-      padding: 4px 10px;
-      border-radius: 999px;
-    }
-
-    .card-link {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.6px;
-    }
-
-    .card-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Filter buttons & showcase project cards */
     .filter-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 26px;
+      gap: 8px;
+      margin-bottom: 24px;
     }
 
     .filter-btn {
-      background: rgba(255, 255, 255, 0.03);
+      background: var(--bg-card);
       border: 1px solid var(--border);
       color: var(--text-muted);
       padding: 7px 14px;
       border-radius: 999px;
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #06211b;
-    }
-
-    .showcase-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .case-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .case-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    .case-banner {
-      background: linear-gradient(135deg, #0d2328 0%, #101923 100%);
-      border-bottom: 1px solid var(--border);
-      padding: 18px 20px;
-      min-height: 112px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .case-tag {
-      align-self: flex-start;
-      background: rgba(62, 214, 181, 0.14);
-      color: var(--accent);
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      padding: 3px 8px;
-      border-radius: 6px;
-    }
-
-    .case-banner-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #ffffff;
-      margin-top: 8px;
-    }
-
-    .case-wave {
-      height: 2px;
-      width: 56px;
-      background: var(--accent);
-      border-radius: 999px;
-      margin-top: 8px;
-    }
-
-    .case-body {
-      padding: 20px;
-      flex: 1;
-    }
-
-    .case-body h3 {
-      font-size: 1.08rem;
-      color: #ffffff;
-      margin-bottom: 8px;
-    }
-
-    .case-summary {
-      color: var(--text-muted);
-      font-size: 0.88rem;
-      margin-bottom: 14px;
-    }
-
-    .case-bullets,
-    .cap-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
-
-    .case-bullets li::before,
-    .cap-list li::before {
-      content: "• ";
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .case-footer {
-      padding: 14px 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.6px;
+      cursor: pointer;
     }
 
-    .gh-mini {
-      color: var(--text-muted);
-      text-decoration: none;
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
     }
 
-    .gh-mini:hover {
-      color: var(--accent);
-    }
-
-    /* Capabilities grid */
-    .cap-grid {
+    .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
-    .cap-card {
+    .card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
     }
 
-    .cap-title {
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
+    .card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
       margin-bottom: 14px;
     }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 36px;
-      align-items: start;
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
     }
 
-    .about-text p {
+    .pill {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
       color: var(--text-muted);
+      font-size: 0.88rem;
       margin-bottom: 16px;
-      font-size: 0.98rem;
     }
 
-    .edu-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .edu-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: 18px 20px;
-      border-radius: 12px;
-    }
-
-    .edu-box .edu-date {
+    .bullet-list li::before {
+      content: "• ";
       color: var(--accent);
-      font-size: 0.8rem;
       font-weight: 700;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
     }
 
-    .edu-box strong {
-      display: block;
-      color: #ffffff;
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
-
-    .edu-box span {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    .cert-subnote {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      margin-top: -12px;
-      margin-bottom: 24px;
-    }
-
-    .cert-stack {
+    .card-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
       display: flex;
-      flex-direction: column;
-      gap: 14px;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .cert-row {
-      width: 100%;
+    .link-btn {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.84rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .link-btn:hover {
+      text-decoration: underline;
+    }
+
+    .cta-banner {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px 22px;
+      border-radius: 16px;
+      padding: 32px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      cursor: pointer;
-      text-align: left;
-      color: var(--text-white);
-      font-family: inherit;
-      transition: border-color 0.2s, transform 0.2s, background 0.2s;
-    }
-
-    .cert-row:hover {
-      border-color: var(--accent);
-      background: #141e28;
-      transform: translateY(-2px);
-    }
-
-    .cert-left {
-      display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 24px;
+      margin-top: 28px;
     }
 
-    .cert-icon {
-      color: var(--accent);
-      font-size: 1.05rem;
-      line-height: 1;
-    }
-
-    .cert-title {
-      font-size: 1rem;
-      font-weight: 500;
-      color: #ffffff;
-    }
-
-    .cert-meta {
+    footer {
+      padding: 32px 0;
       color: var(--text-muted);
-      font-size: 0.85rem;
-      white-space: nowrap;
+      font-size: 0.86rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
-    .cert-modal-backdrop {
+    /* Modals for GitHub Lock & Contact Email */
+    .modal-backdrop {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(5, 9, 13, 0.78);
-      backdrop-filter: blur(6px);
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(4px);
       z-index: 100;
       align-items: center;
       justify-content: center;
       padding: 20px;
     }
 
-    .cert-modal-backdrop.open {
+    .modal-backdrop.open {
       display: flex;
     }
 
-    .cert-modal {
+    .modal-box {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      max-width: 880px;
+      border-radius: 14px;
+      max-width: 420px;
       width: 100%;
-      max-height: 90vh;
-      display: flex;
-      flex-direction: column;
       padding: 24px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
     }
 
-    .cert-modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 8px;
+    .modal-box h3 {
+      margin-bottom: 6px;
+      font-size: 1.15rem;
     }
 
-    .cert-modal-header h3 {
-      font-size: 1.2rem;
-      color: #ffffff;
-    }
-
-    .cert-close {
-      background: transparent;
-      border: 1px solid var(--border);
+    .modal-box p {
       color: var(--text-muted);
-      width: 32px;
-      height: 32px;
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .modal-input {
+      width: 100%;
+      padding: 10px 12px;
       border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-
-    .cert-close:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .cert-modal-meta {
-      color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    .cert-viewer-box {
-      width: 100%;
-      height: 62vh;
-      min-height: 360px;
-      background: #0b1116;
       border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      margin: 14px 0 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: var(--bg-main);
+      color: var(--text-main);
+      font-size: 0.92rem;
+      margin-bottom: 10px;
     }
 
-    .cert-viewer-box iframe,
-    .cert-viewer-box img {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    .cert-viewer-box img {
-      object-fit: contain;
-      padding: 12px;
-    }
-
-    /* Bottom CTA & structured footer */
-    .cta-section {
-      padding: 56px 0 28px;
-      border-bottom: none;
-    }
-
-    .cta-box {
-      background: linear-gradient(135deg, #102327 0%, #111921 65%, #122526 100%);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 36px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .cta-box h2 {
-      margin-bottom: 8px;
-      font-size: 1.9rem;
-    }
-
-    .cta-box p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      max-width: 520px;
-    }
-
-    .cta-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      flex-shrink: 0;
-    }
-
-    footer {
-      padding: 36px 0 32px;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 24px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .footer-brand strong {
-      display: block;
-      color: var(--text-white);
-      font-size: 0.86rem;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .footer-nav {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .footer-nav a,
-    .footer-socials a {
-      color: var(--text-muted);
-      text-decoration: none;
+    .modal-error {
+      color: #dc2626;
       font-size: 0.82rem;
-      letter-spacing: 0.6px;
-      transition: color 0.2s;
+      min-height: 1.2rem;
+      margin-bottom: 10px;
     }
 
-    .footer-nav a:hover,
-    .footer-socials a:hover {
-      color: var(--accent);
+    .email-pill-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+      word-break: break-all;
     }
 
-    .footer-socials {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      padding-top: 18px;
-      font-size: 0.78rem;
-      color: #64748b;
-    }
-
-    @media (max-width: 960px) {
-      .cap-grid,
-      .showcase-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 850px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .hero p {
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .btn-row {
-        justify-content: center;
-      }
-      .hero h1 {
-        font-size: 2.9rem;
-      }
-      .stats-bar {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .about-grid,
-      .grid-2 {
+    @media (max-width: 900px) {
+      .hero, .grid-3, .stats-bar {
         grid-template-columns: 1fr;
       }
-      .cert-row {
+      .cta-banner {
         flex-direction: column;
         align-items: flex-start;
-      }
-      .cta-box,
-      .footer-top,
-      .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .cap-grid,
-      .showcase-grid {
-        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-
   <header>
     <div class="container">
       <nav>
@@ -820,66 +457,49 @@
           <span>Foram Shah</span>
         </a>
         <div class="nav-links">
-          <a href="#home">Home</a>
           <a href="#projects">Projects</a>
           <a href="#capabilities">Capabilities</a>
-          <a href="#about">About</a>
-          <a href="#certifications">Certifications</a>
+          <a href="#contact">Contact</a>
         </div>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <div class="hero" id="home">
+    <section class="hero" id="home" style="border-bottom: none; padding-bottom: 40px;">
       <div>
-        <div class="eyebrow">✦ PORTFOLIO</div>
+        <div class="eyebrow">Data Analyst Portfolio</div>
         <h1>Foram Shah</h1>
         <div class="hero-subtitle">
-          I am <span id="typewriterText" class="typewriter-text">Data Analyst &amp; Insight Communicator</span><span class="typewriter-cursor">|</span>
+          I am <span id="typewriterText" class="typewriter-text">Dashboard Builder</span><span class="typewriter-cursor">|</span>
         </div>
         <p>
-          Turning raw data into clear analysis, interactive dashboards, and structured workflows using SQL Server, Power BI, Tableau, and Python so stakeholders can make confident decisions.
+          Turning raw operational data into clear analysis, interactive dashboards, and structured SQL/Python workflows for confident decision-making.
         </p>
         <div class="btn-row">
-          <a href="#projects" class="btn btn-mint">View projects →</a>
-          <a href="#about" class="btn btn-dark">About</a>
-          <a href="https://www.linkedin.com/in/foramshahnimeshbhai" target="_blank" class="btn btn-dark">LinkedIn</a>
+          <a href="#projects" class="btn btn-primary">View projects →</a>
+          <button type="button" class="btn btn-secondary" onclick="openContactModal()">Get in touch</button>
+          <button type="button" class="btn btn-secondary gh-protected" data-gh-url="https://github.com/foram971">GitHub</button>
         </div>
       </div>
-
-      <div class="hero-photo-wrap">
-        <div class="photo-ring">
-          <img src="profile.jpeg" alt="Foram Shah" onerror="this.src='https://avatars.githubusercontent.com/u/262698647?v=4'" />
-        </div>
+      <div class="photo-card">
+        <img src="profile.jpeg" alt="Foram Shah" onerror="this.src='https://avatars.githubusercontent.com/u/262698647?v=4'" />
       </div>
-    </div>
+    </section>
 
     <div class="stats-bar">
-      <div class="stat-item">
-        <h3>5</h3>
-        <p>Featured analytics projects</p>
-      </div>
-      <div class="stat-item">
-        <h3>SQL · BI</h3>
-        <p>T-SQL, Power BI &amp; Tableau</p>
-      </div>
-      <div class="stat-item">
-        <h3>Python</h3>
-        <p>Data cleaning &amp; workflows</p>
-      </div>
-      <div class="stat-item">
-        <h3>11</h3>
-        <p>Certificate files</p>
-      </div>
+      <div class="stat-box"><h3>5</h3><p>Featured analytics projects</p></div>
+      <div class="stat-box"><h3>SQL · BI</h3><p>T-SQL, Power BI &amp; Tableau</p></div>
+      <div class="stat-box"><h3>Python</h3><p>Data cleaning &amp; workflows</p></div>
+      <div class="stat-box"><h3>11</h3><p>Certifications</p></div>
     </div>
 
     <section id="projects">
-      <div class="section-label">PORTFOLIO</div>
-      <h2>Projects &amp; Analytical Workflows</h2>
-      <p class="section-subnote">Curated analytics projects across SQL Server, Power BI, Tableau, and Python.</p>
+      <div class="eyebrow">Selected Work</div>
+      <h2>Projects &amp; Case Studies</h2>
+      <p class="subnote">Filter by tool or open a project repository.</p>
 
-      <div class="filter-row" id="projectFilters">
+      <div class="filter-row">
         <button type="button" class="filter-btn active" data-filter="all">ALL</button>
         <button type="button" class="filter-btn" data-filter="sql">SQL</button>
         <button type="button" class="filter-btn" data-filter="powerbi">POWER BI</button>
@@ -887,546 +507,291 @@
         <button type="button" class="filter-btn" data-filter="python">PYTHON</button>
       </div>
 
-      <div class="showcase-grid" id="projectGrid">
-        <article class="case-card" data-category="sql">
-          <div class="case-banner">
-            <span class="case-tag">SQL SERVER</span>
-            <div class="case-banner-title">Hospital Resource Management</div>
-            <div class="case-wave"></div>
-          </div>
-          <div class="case-body">
+      <div class="grid-3" id="projectGrid">
+        <article class="card" data-category="sql">
+          <div>
             <h3>Hospital Resource Management (SQL Server)</h3>
-            <p class="case-summary">Hospitals need clear visibility into patient flow, bed utilization, and ER wait times across departments.</p>
+            <p>Relational hospital operations analysis across patient admissions, departments, and bed capacity.</p>
             <div class="pill-row">
               <span class="pill">SQL Server</span>
               <span class="pill">T-SQL</span>
               <span class="pill">Window Functions</span>
-              <span class="pill">Excel</span>
             </div>
-            <ul class="case-bullets">
-              <li>Analyzed 2,506 patient records, 10 departments, and 2,847 beds</li>
-              <li>Tracked avg length of stay, readmission rates, and bed occupancy</li>
-              <li>Ranked ER wait times with RANK() &amp; DENSE_RANK()</li>
+            <ul class="bullet-list">
+              <li>2,506 patient records, 10 departments &amp; 2,847 beds</li>
+              <li>Length of stay, readmissions &amp; bed occupancy</li>
+              <li>ER wait time rankings via RANK() &amp; DENSE_RANK()</li>
             </ul>
           </div>
-          <div class="case-footer">
-            <a href="https://github.com/foram971/Hospital-Resource-Management-SQL" target="_blank" class="card-link">VIEW PROJECT ↗</a>
-            <a href="https://github.com/foram971/Hospital-Resource-Management-SQL" target="_blank" class="gh-mini">GitHub</a>
+          <div class="card-footer">
+            <button type="button" class="link-btn gh-protected" data-gh-url="https://github.com/foram971/Hospital-Resource-Management-SQL">VIEW PROJECT ↗</button>
           </div>
         </article>
 
-        <article class="case-card" data-category="powerbi">
-          <div class="case-banner">
-            <span class="case-tag">POWER BI</span>
-            <div class="case-banner-title">Business Analytics Solution</div>
-            <div class="case-wave"></div>
-          </div>
-          <div class="case-body">
+        <article class="card" data-category="powerbi">
+          <div>
             <h3>Business Analytics Solution (Power BI)</h3>
-            <p class="case-summary">Leadership teams need unified revenue, margin, and period-over-period tracking without manual spreadsheets.</p>
+            <p>End-to-end BI reporting with Bronze, Silver, and Gold medallion structure and DAX metrics.</p>
             <div class="pill-row">
               <span class="pill">Power BI</span>
               <span class="pill">DAX</span>
               <span class="pill">Power Query</span>
-              <span class="pill">Medallion</span>
             </div>
-            <ul class="case-bullets">
-              <li>Built Bronze, Silver, and Gold medallion data layers</li>
-              <li>Created DAX measures for Revenue, Cost, Profit, YTD, QTD &amp; LY</li>
-              <li>Added forecasting visuals and P&amp;L filtering</li>
+            <ul class="bullet-list">
+              <li>Revenue, Cost, Profit &amp; Margin KPIs</li>
+              <li>YTD, QTD, LY comparisons &amp; forecasting visuals</li>
+              <li>P&amp;L filtering for executive review</li>
             </ul>
           </div>
-          <div class="case-footer">
-            <a href="https://github.com/foram971/Power-BI" target="_blank" class="card-link">VIEW PROJECT ↗</a>
-            <a href="https://github.com/foram971/Power-BI" target="_blank" class="gh-mini">GitHub</a>
+          <div class="card-footer">
+            <button type="button" class="link-btn gh-protected" data-gh-url="https://github.com/foram971/Power-BI">VIEW PROJECT ↗</button>
           </div>
         </article>
 
-        <article class="case-card" data-category="powerbi">
-          <div class="case-banner">
-            <span class="case-tag">POWER BI</span>
-            <div class="case-banner-title">Retail Analytics – WarmHands</div>
-            <div class="case-wave"></div>
-          </div>
-          <div class="case-body">
+        <article class="card" data-category="powerbi">
+          <div>
             <h3>Retail Analytics – WarmHands (Power BI)</h3>
-            <p class="case-summary">Retail teams need clear product and inventory signals to balance stock availability with profitability.</p>
+            <p>Star-schema retail analytics covering orders, customers, stock, pricing, and product ABC tiers.</p>
             <div class="pill-row">
               <span class="pill">Power BI</span>
               <span class="pill">Star Schema</span>
               <span class="pill">ABC Analysis</span>
-              <span class="pill">DAX</span>
             </div>
-            <ul class="case-bullets">
-              <li>Modeled Orders, Customers, Stock, Price, Cost &amp; Country tables</li>
-              <li>Segmented products using A, B, C inventory categorization</li>
-              <li>Tracked sales trends, margins, and stock impact</li>
+            <ul class="bullet-list">
+              <li>Multi-table retail &amp; inventory model</li>
+              <li>A, B, C product profitability segmentation</li>
+              <li>Sales trends &amp; stock impact tracking</li>
             </ul>
           </div>
-          <div class="case-footer">
-            <a href="https://github.com/foram971/Power-BI" target="_blank" class="card-link">VIEW PROJECT ↗</a>
-            <a href="https://github.com/foram971/Power-BI" target="_blank" class="gh-mini">GitHub</a>
+          <div class="card-footer">
+            <button type="button" class="link-btn gh-protected" data-gh-url="https://github.com/foram971/Power-BI">VIEW PROJECT ↗</button>
           </div>
         </article>
 
-        <article class="case-card" data-category="tableau">
-          <div class="case-banner">
-            <span class="case-tag">TABLEAU</span>
-            <div class="case-banner-title">Job Market Analytics</div>
-            <div class="case-wave"></div>
-          </div>
-          <div class="case-body">
+        <article class="card" data-category="tableau">
+          <div>
             <h3>Job Market Analytics Dashboard (Tableau)</h3>
-            <p class="case-summary">Job seekers and talent teams need clear views of hiring demand, role levels, and pay benchmarks.</p>
+            <p>Interactive hiring and compensation dashboard across industries, roles, and experience tiers.</p>
             <div class="pill-row">
               <span class="pill">Tableau</span>
               <span class="pill">Excel</span>
-              <span class="pill">Salary Benchmarks</span>
+              <span class="pill">Benchmarks</span>
             </div>
-            <ul class="case-bullets">
-              <li>Mapped industry hiring concentration and role seniority</li>
-              <li>Compared compensation benchmarks and skill demand</li>
-              <li>Tracked applicant supply vs. job postings over time</li>
+            <ul class="bullet-list">
+              <li>Industry hiring concentration &amp; role seniority</li>
+              <li>Salary benchmarks &amp; in-demand skills</li>
+              <li>Applicant supply vs. job postings trends</li>
             </ul>
           </div>
-          <div class="case-footer">
-            <a href="https://github.com/foram971?tab=repositories" target="_blank" class="card-link">VIEW PROJECT ↗</a>
-            <a href="https://github.com/foram971?tab=repositories" target="_blank" class="gh-mini">GitHub</a>
+          <div class="card-footer">
+            <button type="button" class="link-btn gh-protected" data-gh-url="https://github.com/foram971?tab=repositories">VIEW PROJECT ↗</button>
           </div>
         </article>
 
-        <article class="case-card" data-category="python">
-          <div class="case-banner">
-            <span class="case-tag">PYTHON</span>
-            <div class="case-banner-title">Python for Data Analytics</div>
-            <div class="case-wave"></div>
-          </div>
-          <div class="case-body">
+        <article class="card" data-category="python">
+          <div>
             <h3>Python for Data Analytics</h3>
-            <p class="case-summary">Clean, repeatable Python preparation makes messy datasets reliable for downstream BI dashboards.</p>
+            <p>Structured Python notebooks for cleaning, reshaping, and preparing datasets for BI tools.</p>
             <div class="pill-row">
               <span class="pill">Python</span>
               <span class="pill">Pandas</span>
               <span class="pill">NumPy</span>
-              <span class="pill">Jupyter</span>
             </div>
-            <ul class="case-bullets">
-              <li>Organized chapter-by-chapter notebooks from basics to cleaning</li>
-              <li>Covers data structures, functions, file handling &amp; wrangling</li>
-              <li>Prepares clean tables for Power BI and Tableau</li>
+            <ul class="bullet-list">
+              <li>Core Python, data structures &amp; functions</li>
+              <li>Data cleaning &amp; transformation workflows</li>
+              <li>Ready-to-visualize tables for Power BI &amp; Tableau</li>
             </ul>
           </div>
-          <div class="case-footer">
-            <a href="https://github.com/foram971/Python" target="_blank" class="card-link">VIEW PROJECT ↗</a>
-            <a href="https://github.com/foram971/Python" target="_blank" class="gh-mini">GitHub</a>
+          <div class="card-footer">
+            <button type="button" class="link-btn gh-protected" data-gh-url="https://github.com/foram971/Python">VIEW PROJECT ↗</button>
           </div>
         </article>
       </div>
     </section>
 
     <section id="capabilities">
-      <div class="section-label">CAPABILITIES</div>
-      <h2>What I build</h2>
-      <p class="section-subnote">From raw operational data to interactive dashboards, SQL insights, and clean analytical workflows.</p>
-
-      <div class="cap-grid">
-        <div class="cap-card">
-          <div class="cap-title">BI &amp; EXECUTIVE DASHBOARDS</div>
-          <ul class="cap-list">
-            <li>Power BI &amp; Tableau interactive reporting</li>
-            <li>DAX time-intelligence (YTD, QTD, LY) &amp; KPIs</li>
-            <li>Star schema &amp; Medallion data modeling</li>
-            <li>ABC inventory &amp; workforce benchmarking</li>
-            <li>Stakeholder-ready visual storytelling</li>
-          </ul>
-        </div>
-
-        <div class="cap-card">
-          <div class="cap-title">SQL &amp; RELATIONAL ANALYTICS</div>
-          <ul class="cap-list">
-            <li>SQL Server (T-SQL) querying &amp; multi-table joins</li>
-            <li>Window functions (RANK, DENSE_RANK)</li>
-            <li>Length-of-stay, readmission &amp; occupancy metrics</li>
-            <li>Bottleneck, wait-time &amp; utilization analysis</li>
-            <li>SSMS flat-file &amp; CSV data loading workflows</li>
-          </ul>
-        </div>
-
-        <div class="cap-card">
-          <div class="cap-title">PYTHON &amp; DATA PREPARATION</div>
-          <ul class="cap-list">
-            <li>Data cleaning &amp; transformation pipelines</li>
-            <li>Working with Pandas, NumPy &amp; Jupyter</li>
-            <li>Excel &amp; Power Query data shaping</li>
-            <li>Structured, reusable analytical scripts</li>
-            <li>Dataset prep for BI &amp; reporting tools</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="section-label">ABOUT</div>
-      <h2>Foram Shah</h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>
-            I am a Data Analyst with a strong foundation in software and database management, working across Power BI, Tableau, SQL Server, and Python to turn raw information into clear, actionable insights.
-          </p>
-          <p>
-            Through my academic training in India and Canada and hands-on analytics projects on GitHub, I focus on clean data preparation, structured problem-solving, and clear visual reporting.
-          </p>
-          <div class="pill-row">
-            <span class="pill">SQL Server</span>
-            <span class="pill">Power BI</span>
-            <span class="pill">Tableau</span>
-            <span class="pill">Python</span>
-            <span class="pill">Database Management</span>
-            <span class="pill">Microsoft Azure</span>
-          </div>
-          <div class="btn-row" style="margin-top: 20px;">
-            <a href="#projects" class="btn btn-mint">See projects</a>
-            <a href="#certifications" class="btn btn-dark">Certificates</a>
-            <a href="https://github.com/foram971" target="_blank" class="btn btn-dark">GitHub</a>
-            <a href="https://www.linkedin.com/in/foramshahnimeshbhai" target="_blank" class="btn btn-dark">LinkedIn</a>
+      <div class="eyebrow">Capabilities</div>
+      <h2>What I Build</h2>
+      <p class="subnote">Practical analytics across relational databases, business intelligence, and Python.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div>
+            <h3>SQL &amp; Data Modeling</h3>
+            <ul class="bullet-list">
+              <li>T-SQL joins, aggregations &amp; window functions</li>
+              <li>Operational utilization &amp; bottleneck queries</li>
+              <li>Star schema &amp; medallion reporting layers</li>
+            </ul>
           </div>
         </div>
-
-        <div class="edu-stack">
-          <div class="edu-box">
-            <div class="edu-date">December 2019 · Canada</div>
-            <strong>Post Graduation: Computer Software and Database Management</strong>
-            <span>Lambton College</span>
+        <div class="card">
+          <div>
+            <h3>Power BI &amp; Tableau</h3>
+            <ul class="bullet-list">
+              <li>DAX time intelligence &amp; KPI dashboards</li>
+              <li>ABC inventory &amp; workforce benchmarking</li>
+              <li>Clear executive &amp; stakeholder visuals</li>
+            </ul>
           </div>
-          <div class="edu-box">
-            <div class="edu-date">April 2017 · India</div>
-            <strong>Bachelor's: Computer Application</strong>
-            <span>Som Lalit College</span>
+        </div>
+        <div class="card">
+          <div>
+            <h3>Python &amp; Excel</h3>
+            <ul class="bullet-list">
+              <li>Data cleaning &amp; wrangling with Pandas/NumPy</li>
+              <li>Power Query &amp; spreadsheet data prep</li>
+              <li>Repeatable, well-documented scripts</li>
+            </ul>
           </div>
         </div>
       </div>
-    </section>
 
-    <section id="certifications" style="border-bottom: none;">
-      <div class="section-label">CREDENTIALS</div>
-      <h2>Certifications</h2>
-      <p class="cert-subnote">Click a certification to preview the PDF, download a copy, or verify online.</p>
-
-      <div class="cert-stack">
-        <button type="button" class="cert-row" onclick="openCertModal(
-          'IBM Data Analyst Professional Certificate',
-          'IBM / Coursera · Issued May 2021 · Credential ID: QP5YJF3AWV6J',
-          'ibm-data-analyst.pdf',
-          'https://www.credly.com/users/foram-shah.6bea922e'
-        )">
-          <span class="cert-left">
-            <span class="cert-icon">🏅</span>
-            <span class="cert-title">IBM Data Analyst</span>
-          </span>
-          <span class="cert-meta">May 2021 · View PDF →</span>
-        </button>
-
-        <button type="button" class="cert-row" onclick="openCertModal(
-          'IBM Data Analyst Capstone Project',
-          'IBM / Coursera · Issued May 15, 2021',
-          'ibm-data-analyst-capstone-project.pdf',
-          'https://www.credly.com/badges/66cb836f-2e10-44c7-9dc2-55e9ffa4hebh'
-        )">
-          <span class="cert-left">
-            <span class="cert-icon">🏅</span>
-            <span class="cert-title">IBM Data Analyst Capstone Project</span>
-          </span>
-          <span class="cert-meta">May 15, 2021 · View PDF →</span>
-        </button>
-
-        <button type="button" class="cert-row" onclick="openCertModal(
-          'Microsoft Certified: Azure Fundamentals (AZ-900)',
-          'Microsoft · Issued Mar 26, 2021',
-          'microsoft-az-900-azure-fundamentals.pdf',
-          'https://www.credly.com/users/foram-shah.6bea922e'
-        )">
-          <span class="cert-left">
-            <span class="cert-icon">🏅</span>
-            <span class="cert-title">Microsoft AZ-900 - Azure Fundamentals</span>
-          </span>
-          <span class="cert-meta">Mar 26, 2021 · View PDF →</span>
-        </button>
-
-        <button type="button" class="cert-row" onclick="openCertModal(
-          'Data Analytics Foundations',
-          'Coursera',
-          'data-analytics-foundations.pdf',
-          'https://www.credly.com/users/foram-shah.6bea922e'
-        )">
-          <span class="cert-left">
-            <span class="cert-icon">🏅</span>
-            <span class="cert-title">Data Analytics Foundations</span>
-          </span>
-          <span class="cert-meta">View PDF →</span>
-        </button>
-
-        <button type="button" class="cert-row" onclick="openCertModal(
-          'Data Analysis with Python',
-          'Coursera · Issued May 6, 2021',
-          'data-analysis-with-python.pdf',
-          'https://www.credly.com/users/foram-shah.6bea922e'
-        )">
-          <span class="cert-left">
-            <span class="cert-icon">🏅</span>
-            <span class="cert-title">Data Analysis with Python</span>
-          </span>
-          <span class="cert-meta">May 2021 · View PDF →</span>
-        </button>
-
-        <button type="button" class="cert-row" onclick="openCertModal(
-          'Data Visualization with Python',
-          'Coursera · Issued May 13, 2021',
-          'data-visualization-with-python.pdf',
-          'https://www.credly.com/users/foram-shah.6bea922e'
-        )">
-          <span class="cert-left">
-            <span class="cert-icon">🏅</span>
-            <span class="cert-title">Data Visualization with Python</span>
-          </span>
-          <span class="cert-meta">May 2021 · View PDF →</span>
-        </button>
-
-        <button type="button" class="cert-row" onclick="openCertModal(
-          'Databases and SQL for Data Science with Python',
-          'Coursera',
-          'databases-and-sql-for-data-science-with-python.pdf',
-          'https://www.credly.com/users/foram-shah.6bea922e'
-        )">
-          <span class="cert-left">
-            <span class="cert-icon">🏅</span>
-            <span class="cert-title">Databases and SQL for Data Science with Python</span>
-          </span>
-          <span class="cert-meta">View PDF →</span>
-        </button>
-
-        <button type="button" class="cert-row" onclick="openCertModal(
-          'Data Visualization and Dashboards with Excel and Cognos',
-          'Coursera',
-          'data-visualization-and-dashboards-with-excel-and-cognos.pdf',
-          'https://www.credly.com/users/foram-shah.6bea922e'
-        )">
-          <span class="cert-left">
-            <span class="cert-icon">🏅</span>
-            <span class="cert-title">Data Visualization and Dashboards with Excel and Cognos</span>
-          </span>
-          <span class="cert-meta">View PDF →</span>
-        </button>
-
-        <button type="button" class="cert-row" onclick="openCertModal(
-          'Excel For Data Analysis',
-          'Coursera · Issued Feb 25, 2021',
-          'excel-for-data-analysis.pdf',
-          'https://www.credly.com/users/foram-shah.6bea922e'
-        )">
-          <span class="cert-left">
-            <span class="cert-icon">🏅</span>
-            <span class="cert-title">Excel For Data Analysis</span>
-          </span>
-          <span class="cert-meta">Feb 2021 · View PDF →</span>
-        </button>
-
-        <button type="button" class="cert-row" onclick="openCertModal(
-          'Python for Data Science & AI',
-          'Coursera · Issued Apr 13, 2021',
-          'python-for-data-science-and-ai.pdf',
-          'https://www.credly.com/users/foram-shah.6bea922e'
-        )">
-          <span class="cert-left">
-            <span class="cert-icon">🏅</span>
-            <span class="cert-title">Python for Data Science &amp; AI</span>
-          </span>
-          <span class="cert-meta">Apr 2021 · View PDF →</span>
-        </button>
-
-        <button type="button" class="cert-row" onclick="openCertModal(
-          'Python Project for Data Science',
-          'Coursera · Issued Apr 28, 2021',
-          'python-project-for-data-science.pdf',
-          'https://www.credly.com/users/foram-shah.6bea922e'
-        )">
-          <span class="cert-left">
-            <span class="cert-icon">🏅</span>
-            <span class="cert-title">Python Project for Data Science</span>
-          </span>
-          <span class="cert-meta">Apr 2021 · View PDF →</span>
-        </button>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div class="cta-box">
+      <div class="cta-banner" id="contact">
         <div>
-          <h2>Let's turn raw data into clear decisions</h2>
-          <p>Open to Data Analyst and BI / analytics roles—combining SQL Server, Power BI, Tableau, and Python to build clear reports and reliable workflows.</p>
+          <h2>Let's work together</h2>
+          <p>Open to Data Analyst and BI opportunities. Reach out directly by email or connect on LinkedIn.</p>
         </div>
-        <div class="cta-actions">
-          <a href="mailto:your.email@example.com" class="btn btn-mint">Get in touch</a>
-          <a href="https://github.com/foram971" target="_blank" class="btn btn-dark">GitHub</a>
+        <div class="btn-row">
+          <button type="button" class="btn btn-primary" onclick="openContactModal()">Get in touch</button>
+          <a href="https://www.linkedin.com/in/foramshahnimeshbhai" target="_blank" class="btn btn-secondary">LinkedIn</a>
         </div>
       </div>
     </section>
   </main>
 
-  <div id="certModal" class="cert-modal-backdrop" onclick="if(event.target === this) closeCertModal()">
-    <div class="cert-modal">
-      <div class="cert-modal-header">
-        <div>
-          <h3 id="certModalTitle">Certification</h3>
-          <div id="certModalMeta" class="cert-modal-meta" style="margin-bottom: 0;"></div>
-        </div>
-        <button type="button" class="cert-close" onclick="closeCertModal()" aria-label="Close">✕</button>
-      </div>
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:12px;">
+      <span>© 2026 Foram Shah</span>
+      <span>Built with GitHub Pages</span>
+    </div>
+  </footer>
 
-      <div id="certViewerBox" class="cert-viewer-box"></div>
-
-      <div class="btn-row">
-        <a id="certDownloadBtn" href="#" download class="btn btn-mint">Download File ↓</a>
-        <a id="certVerifyBtn" href="#" target="_blank" class="btn btn-dark">Verify Credential →</a>
-        <button type="button" class="btn btn-dark" onclick="closeCertModal()">Close</button>
+  <!-- GitHub Access Modal -->
+  <div id="ghModal" class="modal-backdrop" onclick="if(event.target===this) closeGhModal()">
+    <div class="modal-box">
+      <h3>GitHub access</h3>
+      <p>Enter the access password to open this GitHub link.</p>
+      <input type="password" id="ghPassInput" class="modal-input" placeholder="PASSWORD" />
+      <div id="ghError" class="modal-error"></div>
+      <div class="btn-row" style="justify-content:flex-end;">
+        <button type="button" class="btn btn-secondary" onclick="closeGhModal()">CANCEL</button>
+        <button type="button" class="btn btn-primary" onclick="submitGhPass()">UNLOCK</button>
       </div>
     </div>
   </div>
 
-  <footer>
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <strong>Foram Shah</strong>
-          <span>Data Analyst · SQL · Power BI · Tableau · Python</span>
-        </div>
-
-        <div class="footer-nav">
-          <a href="#home">HOME</a>
-          <a href="#projects">PROJECTS</a>
-          <a href="#capabilities">CAPABILITIES</a>
-          <a href="#about">ABOUT</a>
-          <a href="#certifications">CERTIFICATIONS</a>
-        </div>
-
-        <div class="footer-socials">
-          <a href="https://github.com/foram971" target="_blank">GitHub</a>
-          <a href="https://www.linkedin.com/in/foramshahnimeshbhai" target="_blank">LinkedIn</a>
-          <a href="mailto:your.email@example.com">Email</a>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span>© 2026 Foram Shah</span>
-        <span>Built with HTML, CSS &amp; GitHub Pages</span>
+  <!-- Contact / Email Modal -->
+  <div id="contactModal" class="modal-backdrop" onclick="if(event.target===this) closeContactModal()">
+    <div class="modal-box">
+      <h3>Get in touch</h3>
+      <p>Send an email directly or copy my address below.</p>
+      <div class="email-pill-box" id="contactEmailText">your.email@example.com</div>
+      <div class="btn-row">
+        <a id="mailtoLink" href="mailto:your.email@example.com" class="btn btn-primary">Send Email ↗</a>
+        <button type="button" class="btn btn-secondary" onclick="copyContactEmail()">Copy Email</button>
+        <button type="button" class="btn btn-secondary" onclick="closeContactModal()">Close</button>
       </div>
     </div>
-  </footer>
+  </div>
 
   <script>
-    function openCertModal(title, meta, fileUrl, verifyUrl) {
-      document.getElementById('certModalTitle').textContent = title;
-      document.getElementById('certModalMeta').textContent = meta;
+    // Replace with your own email address and unlock passcode
+    const MY_EMAIL = 'your.email@example.com';
+    const GH_PASSCODE = 'foram2026';
 
-      const safeUrl = encodeURI(fileUrl);
-      const viewerBox = document.getElementById('certViewerBox');
-      const downloadBtn = document.getElementById('certDownloadBtn');
-      const verifyBtn = document.getElementById('certVerifyBtn');
+    document.getElementById('contactEmailText').textContent = MY_EMAIL;
+    document.getElementById('mailtoLink').href = `mailto:${MY_EMAIL}`;
 
-      downloadBtn.href = safeUrl;
-      verifyBtn.href = verifyUrl;
+    let pendingGhUrl = '';
 
-      if (fileUrl.toLowerCase().endsWith('.pdf')) {
-        viewerBox.innerHTML = `<iframe src="${safeUrl}" title="${title}"></iframe>`;
-      } else {
-        viewerBox.innerHTML = `<img src="${safeUrl}" alt="${title}" />`;
-      }
-
-      document.getElementById('certModal').classList.add('open');
-    }
-
-    function closeCertModal() {
-      document.getElementById('certModal').classList.remove('open');
-      document.getElementById('certViewerBox').innerHTML = '';
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeCertModal();
+    document.querySelectorAll('.gh-protected').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        pendingGhUrl = el.dataset.ghUrl || 'https://github.com/foram971';
+        document.getElementById('ghPassInput').value = '';
+        document.getElementById('ghError').textContent = '';
+        document.getElementById('ghModal').classList.add('open');
+        setTimeout(() => document.getElementById('ghPassInput').focus(), 50);
+      });
     });
+
+    function closeGhModal() {
+      document.getElementById('ghModal').classList.remove('open');
+      pendingGhUrl = '';
+    }
+
+    function submitGhPass() {
+      const entered = document.getElementById('ghPassInput').value;
+      if (entered === GH_PASSCODE) {
+        const targetUrl = pendingGhUrl;
+        closeGhModal();
+        window.open(targetUrl, '_blank', 'noopener,noreferrer');
+      } else {
+        document.getElementById('ghError').textContent = 'Incorrect password. Please try again.';
+      }
+    }
+
+    document.getElementById('ghPassInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') submitGhPass();
+    });
+
+    function openContactModal() {
+      document.getElementById('contactModal').classList.add('open');
+    }
+
+    function closeContactModal() {
+      document.getElementById('contactModal').classList.remove('open');
+    }
+
+    function copyContactEmail() {
+      navigator.clipboard?.writeText(MY_EMAIL);
+    }
 
     document.querySelectorAll('.filter-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
         const filter = btn.dataset.filter;
-        document.querySelectorAll('#projectGrid .case-card').forEach((card) => {
+        document.querySelectorAll('#projectGrid .card').forEach((card) => {
           card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'flex' : 'none';
         });
       });
     });
 
-    // Typewriter animation for the 5 phrases after "I am "
     (function initTypewriter() {
       const target = document.getElementById('typewriterText');
       if (!target) return;
-
-     
       const phrases = [
         'Dashboard Builder',
         'Analytics Storyteller',
         'Data Analyst',
         'SQL & BI Analyst',
         'Data Workflow Builder'
-
       ];
+      let pIdx = 0;
+      let cIdx = phrases[0].length;
+      let deleting = false;
 
-      let phraseIndex = 0;
-      let charIndex = phrases[0].length;
-      let isDeleting = false;
+      function tick() {
+        const word = phrases[pIdx];
+        cIdx = deleting ? Math.max(0, cIdx - 1) : Math.min(word.length, cIdx + 1);
+        target.textContent = word.slice(0, cIdx);
 
-     (function initTypewriter() {
-  const target = document.getElementById('typewriterText');
-  if (!target) return;
+        let delay = deleting ? 45 : 80;
+        if (!deleting && cIdx === word.length) {
+          delay = 1700;
+          deleting = true;
+        } else if (deleting && cIdx === 0) {
+          deleting = false;
+          pIdx = (pIdx + 1) % phrases.length;
+          delay = 300;
+        }
+        setTimeout(tick, delay);
+      }
 
-  const phrases = [
-    'Dashboard Builder',
-    'Analytics Storyteller',
-    'Data Analyst',
-    'SQL & BI Analyst',
-    'Data Workflow Builder'
-  ];
-
-  let phraseIndex = 0;
-  let charIndex = phrases[0].length;
-  let isDeleting = false;
-
-  function tick() {
-    const current = phrases[phraseIndex];
-
-    if (isDeleting) {
-      charIndex = Math.max(0, charIndex - 1);
-    } else {
-      charIndex = Math.min(current.length, charIndex + 1);
-    }
-
-    target.textContent = current.slice(0, charIndex);
-
-    let delay = isDeleting ? 45 : 80;
-
-    if (!isDeleting && charIndex === current.length) {
-      delay = 1700;
-      isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      delay = 300;
-    }
-
-    setTimeout(tick, delay);
-  }
-
-  setTimeout(tick, 1700);
-})();
+      setTimeout(tick, 1700);
+    })();
   </script>
-
 </body>
 </html>
