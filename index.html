@@ -252,7 +252,7 @@
 
     .grid-2 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 22px;
     }
 
@@ -540,6 +540,11 @@
         flex-direction: column;
         align-items: flex-start;
       }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
     }
   </style>
 </head>
@@ -587,7 +592,7 @@
 
     <div class="stats-bar">
       <div class="stat-item">
-        <h3>4</h3>
+        <h3>5</h3>
         <p>Featured analytics projects</p>
       </div>
       <div class="stat-item">
@@ -665,7 +670,7 @@
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" style="grid-column: 1 / -1;">
           <div>
             <h3>Hospital Resource Management (SQL Server)</h3>
             <p>End-to-end T-SQL analysis across 2,506 patient records, 10 departments, and 2,847 beds evaluating length of stay, readmission rates, bed occupancy, underutilized beds, and ER wait times with ranking window functions.</p>
