@@ -142,9 +142,10 @@
     .typewriter-cursor {
       display: inline-block;
       color: var(--accent);
-      font-weight: 400;
+      font-weight: 500;
       margin-left: 2px;
-      animation: blinkCursor 0.85s infinite;
+      animation: blinkCursor 0.8s step-end infinite;
+}
     }
 
     @keyframes blinkCursor {
@@ -1368,45 +1369,63 @@
       const target = document.getElementById('typewriterText');
       if (!target) return;
 
+     
       const phrases = [
-        'a Data Analyst & Insight Communicator',
-        'an Analytics Storyteller',
-        'a Dashboard Builder',
-        'a SQL & BI Problem Solver',
-        'a Data Workflow Crafter'
+        'Dashboard Builder',
+        'Analytics Storyteller',
+        'Data Analyst',
+        'SQL & BI Analyst',
+        'Data Workflow Builder'
+
       ];
 
       let phraseIndex = 0;
       let charIndex = phrases[0].length;
       let isDeleting = false;
 
-      function tick() {
-        const currentPhrase = phrases[phraseIndex];
+     (function initTypewriter() {
+  const target = document.getElementById('typewriterText');
+  if (!target) return;
 
-        if (isDeleting) {
-          charIndex--;
-          target.textContent = currentPhrase.slice(0, charIndex);
-        } else {
-          charIndex++;
-          target.textContent = currentPhrase.slice(0, charIndex);
-        }
+  const phrases = [
+    'Dashboard Builder',
+    'Analytics Storyteller',
+    'Data Analyst',
+    'SQL & BI Analyst',
+    'Data Workflow Builder'
+  ];
 
-        let delay = isDeleting ? 45 : 75;
+  let phraseIndex = 0;
+  let charIndex = phrases[0].length;
+  let isDeleting = false;
 
-        if (!isDeleting && charIndex === currentPhrase.length) {
-          delay = 1800;
-          isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-          isDeleting = false;
-          phraseIndex = (phraseIndex + 1) % phrases.length;
-          delay = 350;
-        }
+  function tick() {
+    const current = phrases[phraseIndex];
 
-        setTimeout(tick, delay);
-      }
+    if (isDeleting) {
+      charIndex = Math.max(0, charIndex - 1);
+    } else {
+      charIndex = Math.min(current.length, charIndex + 1);
+    }
 
-      setTimeout(tick, 1800);
-    })();
+    target.textContent = current.slice(0, charIndex);
+
+    let delay = isDeleting ? 45 : 80;
+
+    if (!isDeleting && charIndex === current.length) {
+      delay = 1700;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      delay = 300;
+    }
+
+    setTimeout(tick, delay);
+  }
+
+  setTimeout(tick, 1700);
+})();
   </script>
 
 </body>
