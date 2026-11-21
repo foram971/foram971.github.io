@@ -9,15 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-main: #111216;
-      --bg-card: #181a20;
-      --bg-elevated: #1f222b;
-      --accent: #f59e0b;
-      --accent-hover: #fbbf24;
-      --accent-soft: rgba(245, 158, 11, 0.14);
-      --text-white: #f8fafc;
-      --text-muted: #9ca3af;
-      --border: #262932;
+      --bg-main: #120e0c;
+      --bg-card: #1b1512;
+      --bg-elevated: #241c18;
+      --accent: #b45f3b;
+      --accent-hover: #c87451;
+      --accent-light: #d68c6c;
+      --accent-soft: rgba(180, 95, 59, 0.16);
+      --text-white: #f7f2ee;
+      --text-muted: #a89b93;
+      --border: #302520;
     }
 
     * {
@@ -32,7 +33,7 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at 82% 18%, rgba(245, 158, 11, 0.08) 0%, transparent 42%), var(--bg-main);
+      background: radial-gradient(circle at 82% 18%, rgba(180, 95, 59, 0.11) 0%, transparent 45%), var(--bg-main);
       color: var(--text-white);
       line-height: 1.6;
     }
@@ -47,7 +48,7 @@
       position: sticky;
       top: 0;
       z-index: 40;
-      background: rgba(17, 18, 22, 0.92);
+      background: rgba(18, 14, 12, 0.93);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
@@ -72,8 +73,8 @@
     }
 
     .brand-badge {
-      background: var(--accent);
-      color: #14110b;
+      background: linear-gradient(135deg, var(--accent-hover), #8c4527);
+      color: #fff8f4;
       font-weight: 800;
       font-size: 0.82rem;
       padding: 6px 9px;
@@ -82,22 +83,29 @@
 
     .nav-links {
       display: flex;
-      gap: 26px;
+      gap: 24px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
-    .nav-links a {
+    .nav-links a,
+    .nav-links button {
+      background: none;
+      border: none;
+      font-family: inherit;
       text-decoration: none;
       color: var(--text-muted);
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 600;
       letter-spacing: 0.8px;
       text-transform: uppercase;
+      cursor: pointer;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover {
-      color: var(--accent);
+    .nav-links a:hover,
+    .nav-links button:hover {
+      color: var(--accent-light);
     }
 
     .hero {
@@ -109,7 +117,7 @@
     }
 
     .eyebrow {
-      color: var(--accent);
+      color: var(--accent-light);
       font-size: 0.76rem;
       font-weight: 700;
       letter-spacing: 1.6px;
@@ -133,12 +141,12 @@
     }
 
     .typewriter-text {
-      color: var(--accent);
+      color: var(--accent-light);
     }
 
     .typewriter-cursor {
       display: inline-block;
-      color: var(--accent);
+      color: var(--accent-light);
       margin-left: 2px;
       animation: blink 0.8s step-end infinite;
     }
@@ -175,12 +183,12 @@
       transition: all 0.2s ease;
     }
 
-    .btn-amber {
+    .btn-copper {
       background: var(--accent);
-      color: #14110b;
+      color: #fffaf7;
     }
 
-    .btn-amber:hover {
+    .btn-copper:hover {
       background: var(--accent-hover);
       transform: translateY(-1px);
     }
@@ -192,8 +200,8 @@
     }
 
     .btn-dark:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      border-color: var(--accent-hover);
+      color: var(--accent-light);
     }
 
     .photo-card {
@@ -201,6 +209,7 @@
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 14px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
     }
 
     .photo-card img {
@@ -223,7 +232,7 @@
     .stat-box h3 {
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 1.85rem;
-      color: var(--accent);
+      color: var(--accent-light);
       margin-bottom: 4px;
     }
 
@@ -243,9 +252,17 @@
       margin-bottom: 10px;
     }
 
+    .section-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
     .subnote {
       color: var(--text-muted);
-      margin-bottom: 24px;
       font-size: 0.95rem;
     }
 
@@ -272,7 +289,7 @@
     .filter-btn:hover {
       background: var(--accent);
       border-color: var(--accent);
-      color: #14110b;
+      color: #fffaf7;
     }
 
     .grid-3 {
@@ -293,12 +310,12 @@
     }
 
     .card:hover {
-      border-color: var(--accent);
+      border-color: var(--accent-hover);
       transform: translateY(-3px);
     }
 
     .card-banner {
-      background: linear-gradient(135deg, #231d14 0%, #161820 100%);
+      background: linear-gradient(135deg, #2a1c16 0%, #181210 100%);
       border-bottom: 1px solid var(--border);
       padding: 18px 20px;
       min-height: 110px;
@@ -310,7 +327,7 @@
     .card-tag {
       align-self: flex-start;
       background: var(--accent-soft);
-      color: var(--accent);
+      color: var(--accent-light);
       font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 1px;
@@ -328,7 +345,7 @@
     .card-line {
       height: 2px;
       width: 54px;
-      background: var(--accent);
+      background: var(--accent-hover);
       border-radius: 999px;
       margin-top: 8px;
     }
@@ -359,7 +376,7 @@
 
     .pill {
       background: var(--accent-soft);
-      color: var(--accent);
+      color: var(--accent-light);
       font-size: 0.74rem;
       font-weight: 600;
       padding: 4px 10px;
@@ -377,7 +394,7 @@
 
     .bullet-list li::before {
       content: "• ";
-      color: var(--accent);
+      color: var(--accent-light);
       font-weight: 700;
     }
 
@@ -395,7 +412,7 @@
     .link-btn {
       background: none;
       border: none;
-      color: var(--accent);
+      color: var(--accent-light);
       font-weight: 700;
       font-size: 0.78rem;
       letter-spacing: 0.6px;
@@ -417,7 +434,7 @@
     }
 
     .muted-link:hover {
-      color: var(--accent);
+      color: var(--accent-light);
     }
 
     .cap-card {
@@ -428,12 +445,90 @@
     }
 
     .cap-title {
-      color: var(--accent);
+      color: var(--accent-light);
       font-size: 0.76rem;
       font-weight: 700;
       letter-spacing: 1.1px;
       text-transform: uppercase;
       margin-bottom: 12px;
+    }
+
+    /* Certifications Preview Banner on Home */
+    .cert-preview-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .cert-preview-card p {
+      color: var(--text-muted);
+      max-width: 620px;
+      margin-top: 6px;
+      font-size: 0.94rem;
+    }
+
+    /* Full Certifications Page View */
+    #certificationsView {
+      display: none;
+      padding: 40px 0 72px;
+    }
+
+    #certificationsView.active {
+      display: block;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .cert-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .cert-card:hover {
+      border-color: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .cert-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .cert-card h3 {
+      font-size: 1.02rem;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .cert-issuer {
+      color: var(--accent-light);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .cert-date {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      white-space: nowrap;
     }
 
     /* Case Study Detailed View */
@@ -462,7 +557,7 @@
     }
 
     .back-link:hover {
-      color: var(--accent);
+      color: var(--accent-light);
     }
 
     .cs-hero {
@@ -486,7 +581,7 @@
     }
 
     .cs-preview-box {
-      background: linear-gradient(135deg, #231d14 0%, #181a20 100%);
+      background: linear-gradient(135deg, #2a1c16 0%, #1b1512 100%);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 28px;
@@ -542,7 +637,7 @@
     }
 
     .cta-banner {
-      background: linear-gradient(135deg, #211c14 0%, #181a20 70%);
+      background: linear-gradient(135deg, #261a14 0%, #1b1512 72%);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 32px;
@@ -556,6 +651,7 @@
       padding: 32px 0;
       color: var(--text-muted);
       font-size: 0.86rem;
+      border-top: 1px solid var(--border);
     }
 
     .footer-inner {
@@ -570,7 +666,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(5, 6, 8, 0.78);
+      background: rgba(8, 6, 5, 0.8);
       backdrop-filter: blur(5px);
       z-index: 100;
       align-items: center;
@@ -589,6 +685,13 @@
       max-width: 420px;
       width: 100%;
       padding: 24px;
+    }
+
+    .modal-box.cert-modal-wide {
+      max-width: 860px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .modal-box h3 {
@@ -627,16 +730,33 @@
       border-radius: 8px;
       font-weight: 600;
       font-size: 0.9rem;
-      color: var(--accent);
+      color: var(--accent-light);
       margin-bottom: 14px;
       word-break: break-all;
     }
 
+    .cert-viewer-box {
+      width: 100%;
+      height: 60vh;
+      min-height: 340px;
+      background: var(--bg-main);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 12px 0 16px;
+    }
+
+    .cert-viewer-box iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
     @media (max-width: 900px) {
-      .hero, .grid-3, .stats-bar, .cs-hero, .cs-grid-2 {
+      .hero, .grid-3, .stats-bar, .cert-grid, .cs-hero, .cs-grid-2 {
         grid-template-columns: 1fr;
       }
-      .cta-banner {
+      .cta-banner, .cert-preview-card {
         flex-direction: column;
         align-items: flex-start;
       }
@@ -654,6 +774,7 @@
         <div class="nav-links">
           <a href="#projects" onclick="showMainPortfolio()">Projects</a>
           <a href="#capabilities" onclick="showMainPortfolio()">Capabilities</a>
+          <button type="button" onclick="openCertificationsPage()">Certifications</button>
           <a href="#contact" onclick="showMainPortfolio()">Contact</a>
         </div>
       </nav>
@@ -673,7 +794,8 @@
             Turning raw operational data into clear analysis, interactive dashboards, and structured SQL/Python workflows for confident decision-making.
           </p>
           <div class="btn-row">
-            <a href="#projects" class="btn btn-amber">View projects →</a>
+            <a href="#projects" class="btn btn-copper">View projects →</a>
+            <button type="button" class="btn btn-dark" onclick="openCertificationsPage()">Certifications (11)</button>
             <button type="button" class="btn btn-dark" onclick="openContactModal()">Get in touch</button>
             <button type="button" class="btn btn-dark gh-protected" data-gh-url="https://github.com/foram971">GitHub</button>
           </div>
@@ -878,6 +1000,20 @@
         </div>
       </section>
 
+      <section id="certifications-section">
+        <div class="eyebrow">Credentials</div>
+        <h2>Certifications</h2>
+        <div class="cert-preview-card">
+          <div>
+            <h3>11 Data Analytics, Python, SQL &amp; Cloud Certificates</h3>
+            <p>
+              Includes IBM Data Analyst Professional Certificate, IBM Capstone Project, Microsoft Azure Fundamentals (AZ-900), and Coursera specializations in Python, SQL, and Excel.
+            </p>
+          </div>
+          <button type="button" class="btn btn-copper" onclick="openCertificationsPage()">All Certifications →</button>
+        </div>
+      </section>
+
       <section id="contact" style="border-bottom: none;">
         <div class="cta-banner">
           <div>
@@ -885,14 +1021,242 @@
             <p>Open to Data Analyst and BI opportunities. Reach out directly by email or connect on LinkedIn.</p>
           </div>
           <div class="btn-row">
-            <button type="button" class="btn btn-amber" onclick="openContactModal()">Get in touch</button>
+            <button type="button" class="btn btn-copper" onclick="openContactModal()">Get in touch</button>
             <a href="https://www.linkedin.com/in/foramshahnimeshbhai" target="_blank" class="btn btn-dark">LinkedIn</a>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- Detailed Case Study View (shown for any project when CASE STUDY is clicked) -->
+    <!-- Full Certifications Page View -->
+    <div id="certificationsView">
+      <button type="button" class="back-link" onclick="showMainPortfolio()">← Back to Portfolio</button>
+
+      <div class="section-header-row">
+        <div>
+          <div class="eyebrow">Verified Credentials</div>
+          <h1>Certifications (11)</h1>
+          <p class="subnote">Filter by topic and click <strong>View PDF</strong> on any certificate to preview or download.</p>
+        </div>
+      </div>
+
+      <div class="filter-row" id="certFilterRow">
+        <button type="button" class="filter-btn active" data-cert-filter="all">ALL (11)</button>
+        <button type="button" class="filter-btn" data-cert-filter="ibm">IBM &amp; CAPSTONE</button>
+        <button type="button" class="filter-btn" data-cert-filter="python">PYTHON</button>
+        <button type="button" class="filter-btn" data-cert-filter="sql-bi">SQL, BI &amp; EXCEL</button>
+        <button type="button" class="filter-btn" data-cert-filter="cloud">AZURE CLOUD</button>
+      </div>
+
+      <div class="cert-grid" id="certGrid">
+        <div class="cert-card" data-cert-cat="ibm">
+          <div>
+            <div class="cert-card-top">
+              <div>
+                <h3>IBM Data Analyst Professional Certificate</h3>
+                <div class="cert-issuer">IBM / Coursera · ID: QP5YJF3AWV6J</div>
+              </div>
+              <span class="cert-date">May 2021</span>
+            </div>
+            <p style="color:var(--text-muted); font-size:0.86rem; margin-top:10px;">
+              End-to-end data analysis program covering spreadsheets, SQL, Python, data visualization, and analytical reporting.
+            </p>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn btn-copper" style="padding:8px 16px; font-size:0.8rem;" onclick="openCertModal('IBM Data Analyst Professional Certificate','IBM / Coursera · Issued May 2021 · Credential ID: QP5YJF3AWV6J','ibm-data-analyst.pdf','https://www.credly.com/users/foram-shah.6bea922e')">View PDF ↗</button>
+            <a href="https://www.credly.com/users/foram-shah.6bea922e" target="_blank" class="link-btn">Verify ↗</a>
+          </div>
+        </div>
+
+        <div class="cert-card" data-cert-cat="ibm">
+          <div>
+            <div class="cert-card-top">
+              <div>
+                <h3>IBM Data Analyst Capstone Project</h3>
+                <div class="cert-issuer">IBM / Coursera</div>
+              </div>
+              <span class="cert-date">May 15, 2021</span>
+            </div>
+            <p style="color:var(--text-muted); font-size:0.86rem; margin-top:10px;">
+              Applied data wrangling, exploratory analysis, visualization, and executive summary reporting on real-world data.
+            </p>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn btn-copper" style="padding:8px 16px; font-size:0.8rem;" onclick="openCertModal('IBM Data Analyst Capstone Project','IBM / Coursera · Issued May 15, 2021','ibm-data-analyst-capstone-project.pdf','https://www.credly.com/users/foram-shah.6bea922e')">View PDF ↗</button>
+            <a href="https://www.credly.com/users/foram-shah.6bea922e" target="_blank" class="link-btn">Verify ↗</a>
+          </div>
+        </div>
+
+        <div class="cert-card" data-cert-cat="cloud">
+          <div>
+            <div class="cert-card-top">
+              <div>
+                <h3>Microsoft Certified: Azure Fundamentals (AZ-900)</h3>
+                <div class="cert-issuer">Microsoft</div>
+              </div>
+              <span class="cert-date">Mar 26, 2021</span>
+            </div>
+            <p style="color:var(--text-muted); font-size:0.86rem; margin-top:10px;">
+              Foundational knowledge of cloud concepts, Azure compute, networking, storage, security, and governance.
+            </p>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn btn-copper" style="padding:8px 16px; font-size:0.8rem;" onclick="openCertModal('Microsoft Certified: Azure Fundamentals (AZ-900)','Microsoft · Issued Mar 26, 2021','microsoft-az-900-azure-fundamentals.pdf','https://www.credly.com/users/foram-shah.6bea922e')">View PDF ↗</button>
+            <a href="https://www.credly.com/users/foram-shah.6bea922e" target="_blank" class="link-btn">Verify ↗</a>
+          </div>
+        </div>
+
+        <div class="cert-card" data-cert-cat="sql-bi">
+          <div>
+            <div class="cert-card-top">
+              <div>
+                <h3>Data Analytics Foundations</h3>
+                <div class="cert-issuer">Coursera</div>
+              </div>
+              <span class="cert-date">Certificate</span>
+            </div>
+            <p style="color:var(--text-muted); font-size:0.86rem; margin-top:10px;">
+              Core analytical problem framing, data lifecycle practices, and structured insight communication.
+            </p>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn btn-copper" style="padding:8px 16px; font-size:0.8rem;" onclick="openCertModal('Data Analytics Foundations','Coursera','data-analytics-foundations.pdf','https://www.credly.com/users/foram-shah.6bea922e')">View PDF ↗</button>
+          </div>
+        </div>
+
+        <div class="cert-card" data-cert-cat="python">
+          <div>
+            <div class="cert-card-top">
+              <div>
+                <h3>Data Analysis with Python</h3>
+                <div class="cert-issuer">Coursera</div>
+              </div>
+              <span class="cert-date">May 6, 2021</span>
+            </div>
+            <p style="color:var(--text-muted); font-size:0.86rem; margin-top:10px;">
+              Importing, cleaning, aggregating, and modeling datasets using Python libraries and statistical summaries.
+            </p>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn btn-copper" style="padding:8px 16px; font-size:0.8rem;" onclick="openCertModal('Data Analysis with Python','Coursera · Issued May 6, 2021','data-analysis-with-python.pdf','https://www.credly.com/users/foram-shah.6bea922e')">View PDF ↗</button>
+          </div>
+        </div>
+
+        <div class="cert-card" data-cert-cat="python">
+          <div>
+            <div class="cert-card-top">
+              <div>
+                <h3>Data Visualization with Python</h3>
+                <div class="cert-issuer">Coursera</div>
+              </div>
+              <span class="cert-date">May 13, 2021</span>
+            </div>
+            <p style="color:var(--text-muted); font-size:0.86rem; margin-top:10px;">
+              Creating clear charts, comparative plots, and visual storytelling assets with Python.
+            </p>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn btn-copper" style="padding:8px 16px; font-size:0.8rem;" onclick="openCertModal('Data Visualization with Python','Coursera · Issued May 13, 2021','data-visualization-with-python.pdf','https://www.credly.com/users/foram-shah.6bea922e')">View PDF ↗</button>
+          </div>
+        </div>
+
+        <div class="cert-card" data-cert-cat="sql-bi">
+          <div>
+            <div class="cert-card-top">
+              <div>
+                <h3>Databases and SQL for Data Science with Python</h3>
+                <div class="cert-issuer">Coursera</div>
+              </div>
+              <span class="cert-date">Certificate</span>
+            </div>
+            <p style="color:var(--text-muted); font-size:0.86rem; margin-top:10px;">
+              Writing SQL queries, joins, aggregations, and connecting relational databases with Python workflows.
+            </p>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn btn-copper" style="padding:8px 16px; font-size:0.8rem;" onclick="openCertModal('Databases and SQL for Data Science with Python','Coursera','databases-and-sql-for-data-science-with-python.pdf','https://www.credly.com/users/foram-shah.6bea922e')">View PDF ↗</button>
+          </div>
+        </div>
+
+        <div class="cert-card" data-cert-cat="sql-bi">
+          <div>
+            <div class="cert-card-top">
+              <div>
+                <h3>Data Visualization and Dashboards with Excel and Cognos</h3>
+                <div class="cert-issuer">Coursera</div>
+              </div>
+              <span class="cert-date">Certificate</span>
+            </div>
+            <p style="color:var(--text-muted); font-size:0.86rem; margin-top:10px;">
+              Designing interactive dashboards, pivot summaries, and reporting layouts in Excel and Cognos.
+            </p>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn btn-copper" style="padding:8px 16px; font-size:0.8rem;" onclick="openCertModal('Data Visualization and Dashboards with Excel and Cognos','Coursera','data-visualization-and-dashboards-with-excel-and-cognos.pdf','https://www.credly.com/users/foram-shah.6bea922e')">View PDF ↗</button>
+          </div>
+        </div>
+
+        <div class="cert-card" data-cert-cat="sql-bi">
+          <div>
+            <div class="cert-card-top">
+              <div>
+                <h3>Excel For Data Analysis</h3>
+                <div class="cert-issuer">Coursera</div>
+              </div>
+              <span class="cert-date">Feb 25, 2021</span>
+            </div>
+            <p style="color:var(--text-muted); font-size:0.86rem; margin-top:10px;">
+              Spreadsheet cleaning, formulas, PivotTables, and analytical summaries for business data.
+            </p>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn btn-copper" style="padding:8px 16px; font-size:0.8rem;" onclick="openCertModal('Excel For Data Analysis','Coursera · Issued Feb 25, 2021','excel-for-data-analysis.pdf','https://www.credly.com/users/foram-shah.6bea922e')">View PDF ↗</button>
+          </div>
+        </div>
+
+        <div class="cert-card" data-cert-cat="python">
+          <div>
+            <div class="cert-card-top">
+              <div>
+                <h3>Python for Data Science &amp; AI</h3>
+                <div class="cert-issuer">Coursera</div>
+              </div>
+              <span class="cert-date">Apr 13, 2021</span>
+            </div>
+            <p style="color:var(--text-muted); font-size:0.86rem; margin-top:10px;">
+              Foundational Python programming, data structures, and working with analytical datasets.
+            </p>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn btn-copper" style="padding:8px 16px; font-size:0.8rem;" onclick="openCertModal('Python for Data Science & AI','Coursera · Issued Apr 13, 2021','python-for-data-science-and-ai.pdf','https://www.credly.com/users/foram-shah.6bea922e')">View PDF ↗</button>
+          </div>
+        </div>
+
+        <div class="cert-card" data-cert-cat="python">
+          <div>
+            <div class="cert-card-top">
+              <div>
+                <h3>Python Project for Data Science</h3>
+                <div class="cert-issuer">Coursera</div>
+              </div>
+              <span class="cert-date">Apr 28, 2021</span>
+            </div>
+            <p style="color:var(--text-muted); font-size:0.86rem; margin-top:10px;">
+              Hands-on project extracting, processing, and visualizing real-world data in Python.
+            </p>
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn btn-copper" style="padding:8px 16px; font-size:0.8rem;" onclick="openCertModal('Python Project for Data Science','Coursera · Issued Apr 28, 2021','python-project-for-data-science.pdf','https://www.credly.com/users/foram-shah.6bea922e')">View PDF ↗</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 28px;">
+        <button type="button" class="btn btn-dark" onclick="showMainPortfolio()">← Back to Portfolio</button>
+      </div>
+    </div>
+
+    <!-- Detailed Case Study View -->
     <div id="caseStudyView">
       <button type="button" class="back-link" onclick="showMainPortfolio()">← All Projects</button>
 
@@ -902,7 +1266,7 @@
           <h1 id="csTitle">Project Title</h1>
           <p id="csSubtitle">Project summary</p>
           <div class="btn-row">
-            <button type="button" class="btn btn-amber gh-protected" id="csGhBtn" data-gh-url="https://github.com/foram971">Open GitHub Repository</button>
+            <button type="button" class="btn btn-copper gh-protected" id="csGhBtn" data-gh-url="https://github.com/foram971">Open GitHub Repository</button>
             <button type="button" class="btn btn-dark" onclick="openContactModal()">Request Details</button>
           </div>
         </div>
@@ -975,7 +1339,7 @@
       <div id="ghError" class="modal-error"></div>
       <div class="btn-row" style="justify-content:flex-end;">
         <button type="button" class="btn btn-dark" onclick="closeGhModal()">CANCEL</button>
-        <button type="button" class="btn btn-amber" onclick="submitGhPass()">UNLOCK</button>
+        <button type="button" class="btn btn-copper" onclick="submitGhPass()">UNLOCK</button>
       </div>
     </div>
   </div>
@@ -985,18 +1349,37 @@
     <div class="modal-box">
       <h3>Get in touch</h3>
       <p>Reach out directly using my email address below.</p>
-      <div class="email-pill-box" id="contactEmailText">your.email@example.com</div>
+      <div class="email-pill-box" id="contactEmailText">shahforamnimeshbhai@gmail.com</div>
       <div class="btn-row">
-        <a id="mailtoLink" href="mailto:your.email@example.com" class="btn btn-amber">Send Email ↗</a>
+        <a id="mailtoLink" href="mailto:your.email@example.com" class="btn btn-copper">Send Email ↗</a>
         <button type="button" class="btn btn-dark" onclick="copyContactEmail()">Copy Email</button>
         <button type="button" class="btn btn-dark" onclick="closeContactModal()">Close</button>
       </div>
     </div>
   </div>
 
+  <!-- Certificate Viewer Modal -->
+  <div id="certModal" class="modal-backdrop" onclick="if(event.target===this) closeCertModal()">
+    <div class="modal-box cert-modal-wide">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
+        <div>
+          <h3 id="certModalTitle">Certification</h3>
+          <div id="certModalMeta" style="color: var(--accent-light); font-size: 0.85rem; font-weight: 600;"></div>
+        </div>
+        <button type="button" class="btn btn-dark" style="padding:6px 12px;" onclick="closeCertModal()">✕</button>
+      </div>
+      <div id="certViewerBox" class="cert-viewer-box"></div>
+      <div class="btn-row">
+        <a id="certDownloadBtn" href="#" download class="btn btn-copper">Download File ↓</a>
+        <a id="certVerifyBtn" href="#" target="_blank" class="btn btn-dark">Verify Credential →</a>
+        <button type="button" class="btn btn-dark" onclick="closeCertModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    const MY_EMAIL = 'your.email@example.com';
-    const GH_PASSCODE = 'foram2026';
+    const MY_EMAIL = 'shahforamnimeshbhai@gmail.com';
+    const GH_PASSCODE = 'G@me6119';
 
     document.getElementById('contactEmailText').textContent = MY_EMAIL;
     document.getElementById('mailtoLink').href = `mailto:${MY_EMAIL}`;
@@ -1132,6 +1515,23 @@
       }
     };
 
+    function hideAllViews() {
+      document.getElementById('mainPortfolioView').style.display = 'none';
+      document.getElementById('caseStudyView').classList.remove('active');
+      document.getElementById('certificationsView').classList.remove('active');
+    }
+
+    function showMainPortfolio() {
+      hideAllViews();
+      document.getElementById('mainPortfolioView').style.display = 'block';
+    }
+
+    function openCertificationsPage() {
+      hideAllViews();
+      document.getElementById('certificationsView').classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     function openCaseStudy(id) {
       const data = CASE_STUDIES[id];
       if (!data) return;
@@ -1157,14 +1557,9 @@
       document.getElementById('csResults').innerHTML = data.results.map((r) => `<li>${r}</li>`).join('');
       document.getElementById('csLearnings').innerHTML = data.learnings.map((l) => `<li>${l}</li>`).join('');
 
-      document.getElementById('mainPortfolioView').style.display = 'none';
+      hideAllViews();
       document.getElementById('caseStudyView').classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function showMainPortfolio() {
-      document.getElementById('caseStudyView').classList.remove('active');
-      document.getElementById('mainPortfolioView').style.display = 'block';
     }
 
     let pendingGhUrl = '';
@@ -1212,13 +1607,47 @@
       navigator.clipboard?.writeText(MY_EMAIL);
     }
 
-    document.querySelectorAll('.filter-btn').forEach((btn) => {
+    function openCertModal(title, meta, fileUrl, verifyUrl) {
+      document.getElementById('certModalTitle').textContent = title;
+      document.getElementById('certModalMeta').textContent = meta;
+      const safeUrl = encodeURI(fileUrl);
+      document.getElementById('certDownloadBtn').href = safeUrl;
+      document.getElementById('certVerifyBtn').href = verifyUrl;
+      document.getElementById('certViewerBox').innerHTML = `<iframe src="${safeUrl}" title="${title}"></iframe>`;
+      document.getElementById('certModal').classList.add('open');
+    }
+
+    function closeCertModal() {
+      document.getElementById('certModal').classList.remove('open');
+      document.getElementById('certViewerBox').innerHTML = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeGhModal();
+        closeContactModal();
+        closeCertModal();
+      }
+    });
+
+    document.querySelectorAll('#projectGrid ~ .filter-row .filter-btn, #projects .filter-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+        document.querySelectorAll('#projects .filter-btn').forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
         const filter = btn.dataset.filter;
         document.querySelectorAll('#projectGrid .card').forEach((card) => {
           card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'flex' : 'none';
+        });
+      });
+    });
+
+    document.querySelectorAll('#certFilterRow .filter-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#certFilterRow .filter-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.certFilter;
+        document.querySelectorAll('#certGrid .cert-card').forEach((card) => {
+          card.style.display = (filter === 'all' || card.dataset.certCat === filter) ? 'flex' : 'none';
         });
       });
     });
